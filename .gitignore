@@ -1,0 +1,47 @@
+# Ignore all .vs (Visual Studio) files
+.vs/
+
+# Ignore all build artifacts
+bin/
+obj/
+
+# Ignore User-Specific Files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Ignore JetBrains Rider Files
+.idea/
+
+# Ignore Entity Framework Migration Files
+*.Designer.cs
+*.efmodel.diag.xml
+*.efmodel.json
+
+# Ignore Angular Node Modules and Build Files
+client/node_modules/
+client/dist/
+
+# Ignore Logs
+*.log
+
+# Ignore Temporary Files
+*.tmp
+*.temp
+*.cache
+*.pid
+*.seed
+*.bak
+
+# Ignore Database and Configuration Files
+*.db
+*.config
+*.sqlite
+
+# Ignore macOS System Files
+.DS_Store
+
+# Ignore Windows System Files
+Thumbs.db
+desktop.ini
