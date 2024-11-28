@@ -1,0 +1,579 @@
+[
+  {
+    "title": "Gelato",
+    "description": "An Italian version of ice cream that's denser and has a more intense flavor, made with more milk and less cream than its American counterpart, available in a variety of flavors.",
+    "imageUrl": "https://emmaduckworthbakes.com/wp-content/uploads/2023/06/Chocolate-Gelato-Recipe.jpg",
+    "price": 10,
+    "category": "Dessert",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Chocolate Souffle",
+    "description": "A small chocolate cake with a gooey, molten center, served warm to contrast the soft cake exterior and the liquid chocolate inside.",
+    "imageUrl": "https://rud.ua/uploads/under_recipe/shokoladnyi-fondan-600x300_5f2d431d9f2d3.jpg",
+    "price": 9.99,
+    "category": "Dessert",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Cheesecake",
+    "description": "A smooth and creamy dessert with a dense, rich filling made of cream cheese, eggs, and sugar, on a crumbly graham cracker crust, often topped with fruit or chocolate.",
+    "imageUrl": "https://popmenucloud.com/cdn-cgi/image/width%3D1200%2Cheight%3D1200%2Cfit%3Dscale-down%2Cformat%3Dauto%2Cquality%3D60/hfdbjynv/350f06d0-db15-4a80-87e9-d6305569c047.jpg",
+    "price": 7.99,
+    "category": "Dessert",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Cr\u00e8me Br\u00fbl\u00e9e",
+    "description": "A French dessert featuring a rich custard base topped with a contrasting layer of hard caramel, cracked with a spoon for that satisfying first bite.",
+    "imageUrl": "https://www.onceuponachef.com/images/2023/02/Creme-brulee-1-1200x814.jpg",
+    "price": 8.99,
+    "category": "Dessert",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Pepperoni Feast",
+    "description": "Smothered in spicy pepperoni slices and a blend of mozzarella and cheddar cheeses, perfect for meat lovers.",
+    "imageUrl": "https://media.istockphoto.com/id/1460915397/photo/food-photos-various-entrees-appetizers-deserts-etc.webp?b=1&s=170667a&w=0&k=20&c=bJhd3ANZ8ESbweKs1Dm6Ls6z10AL0ieQ9-LWtvoEYzw=",
+    "price": 12.99,
+    "category": "Pizza",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Margherita",
+    "description": "A simple yet timeless pizza topped with fresh mozzarella cheese, tomato sauce, and basil leaves, drizzled with olive oil.",
+    "imageUrl": "https://media.istockphoto.com/id/1280329631/photo/italian-pizza-margherita-with-tomatoes-and-mozzarella-cheese-on-wooden-cutting-board-close-up.jpg?s=612x612&w=0&k=20&c=CFDDjavIC5l8Zska16UZRZDXDwd47fwmRsUNzY0Ym6o=",
+    "price": 9.99,
+    "category": "Pizza",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Blue Cheese and Pear Burger",
+    "description": "A unique gourmet burger featuring a succulent beef patty, creamy blue cheese, thin slices of sweet pear, and arugula, served on a toasted walnut bun.",
+    "imageUrl": "https://www.redefinemeat.com/uk/wp-content/uploads/2023/10/%D7%A8%D7%99%D7%93%D7%99%D7%A4%D7%99%D7%99%D7%9F-%D7%91%D7%95%D7%A8%D7%92%D7%A8-%D7%A2%D7%9D-%D7%92%D7%91%D7%99%D7%A0%D7%94-%D7%9B%D7%97%D7%95%D7%9C%D7%94-%D7%95%D7%90%D7%92%D7%A1%D7%99%D7%9D-%D7%9E%D7%A7%D7%95%D7%A8%D7%9E%D7%9C%D7%99%D7%9D-1.webp",
+    "price": 13.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Garlic Parmesan Chicken Burger",
+    "description": "Juicy grilled chicken breast coated in a rich garlic Parmesan sauce, topped with crispy lettuce, ripe tomatoes, and nestled between a warm, garlic-butter toasted bun.",
+    "imageUrl": "https://media.istockphoto.com/id/652832752/photo/fried-chicken-burger.jpg?s=612x612&w=0&k=20&c=EendRCleaNpkKOUiOplgStACHh_8IyHYzjbzcByGC_4=",
+    "price": 10.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "The Ultimate Umami Burger",
+    "description": "Discover the depth of flavors with our umami-rich beef patty, caramelized onions, shiitake mushrooms, roasted tomatoes, a Parmesan crisp, and umami ketchup, on a soft artisan bun.",
+    "imageUrl": "https://t4.ftcdn.net/jpg/02/74/99/01/360_F_274990113_ffVRBygLkLCZAATF9lWymzE6bItMVuH1.jpg",
+    "price": 5.99,
+    "category": "Burger",
+    "defaultItem": false,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Black Bun Fiesta Burger",
+    "description": "Dive into a blend of spicy black beans, corn, and peppers in a hearty veggie patty, topped with avocado lime dressing and crispy tortilla strips, all on a whole wheat bun.",
+    "imageUrl": "https://img.freepik.com/free-photo/black-chocolate-pan-beef-cheese-burger-with-vegetables-fast-food-french-fries-ketchup_114579-932.jpg",
+    "price": 7.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Honey Mustard Chicken Crunch",
+    "description": "A golden, crispy chicken breast, drizzled with sweet honey mustard, topped with lettuce, tomato, and crispy onions, served on a toasted potato roll.",
+    "imageUrl": "https://cdn.pixabay.com/photo/2023/10/11/19/16/ai-generated-8309355_640.jpg",
+    "price": 11.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Baconator Supreme",
+    "description": "A meat-lover's dream, featuring double beef patties, six strips of crispy bacon, melted cheddar, ketchup, and mayo, making it supremely satisfying.",
+    "imageUrl": "https://www.pastureprimewagyu.com/wp-content/uploads/Bacon-burger-plus.jpg",
+    "price": 8.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Avocado Bliss Veggie Burger",
+    "description": "A mouthwatering, plant-based patty topped with fresh avocado slices, sprouts, tomato, and a light, herb aioli, making it a refreshing choice for all.",
+    "imageUrl": "https://www.brakebush.com/wp-content/uploads/Guacamole-Chicken-Burger.jpg",
+    "price": 11.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Mushroom Swiss Melt",
+    "description": "A savory delight with saut�ed mushrooms, melted Swiss cheese, and a hint of garlic aioli, atop a tender beef patty, all encased in a warm, artisan bun.",
+    "imageUrl": "https://www.recipetineats.com/wp-content/uploads/2020/08/Easy-Swiss-Mushroom-Burgers_7-SQ.jpg",
+    "price": 12.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Fiery Jalape�o Crunch Burger",
+    "description": "Turn up the heat with our spicy jalape�o-infused beef patty, crispy fried onions, spicy mayo, and melted pepper jack cheese, delivering a fiery crunch in every bite.",
+    "imageUrl": "https://media.istockphoto.com/id/1320360118/photo/delicious-craft-beef-burger-with-jalapenos-cheese-bacon-and-whole-wheat-bun.jpg?s=612x612&w=0&k=20&c=yuSrkeVdVtma0uAKrgdP0Hhxq53_KnHwciDQDiaYn7M=",
+    "price": 17.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Classic American Cheeseburger",
+    "description": "The timeless classic that never disappoints, featuring a juicy beef patty, American cheese, pickles, onions, ketchup, and mustard on a soft, sesame seed bun.",
+    "imageUrl": "https://www.kitchensanctuary.com/wp-content/uploads/2021/05/Double-Cheeseburger-square-FS-42.jpg",
+    "price": 9.5,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Smoky BBQ Bacon Whopper",
+    "description": "Experience the explosion of flavors with our thick-cut smoked bacon, drenched in smoky BBQ sauce, over a flame-grilled patty, complemented by crispy onions and creamy mayo.",
+    "imageUrl": "https://d2sa0osf92td39.cloudfront.net/eyJidWNrZXQiOiAiZXZlcm91dC1pbWFnZXMtcHJvZHVjdGlvbiIsICJrZXkiOiAiaW1hZ2UtMTY4Nzk4NTMzODQ1OTA1My1OZXh0LUxldmVsLmpwZyIsICJlZGl0cyI6IHsicmVzaXplIjogeyJmaXQiOiAiaW5zaWRlIiwgInBvc2l0aW9uIjogImNlbnRyZSIsICJ3aWR0aCI6IDk2MCwgImhlaWdodCI6IDYwMH19fQ==",
+    "price": 13.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Beef Master King Burger",
+    "description": "A majestic blend of premium, grass-fed beef, topped with aged cheddar, crisp lettuce, ripe tomatoes, and our signature King sauce, all nestled between a toasted brioche bun.",
+    "imageUrl": "https://static.vecteezy.com/system/resources/previews/030/683/552/non_2x/burgers-high-quality-4k-hdr-free-photo.jpg",
+    "price": 14.99,
+    "category": "Burger",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Chorizo Tacos",
+    "description": "Scrambled eggs with chorizo, bacon, or potatoes, topped with cheese and salsa, wrapped in a soft flour tortilla.",
+    "imageUrl": "https://www.badmanners.com/sites/default/files/styles/recipe_big/public/recipes/Poblano%20Breakfast%20Tacos_Edited.jpg",
+    "price": 9.99,
+    "category": "Tacos",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Birria Tacos",
+    "description": "Tender, stewed meat marinated in a rich and spicy sauce, served in a corn tortilla that's been dipped in the stew's fat and grilled until crispy. Often accompanied by a side of consomm\u00e9 for dipping.",
+    "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/delish-202104-birriatacos-033-1619806490.jpg?crop=0.670xw:1.00xh;0,0&resize=1200:*",
+    "price": 16.99,
+    "category": "Tacos",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Vegetarian Tacos",
+    "description": "A mixture of saut\u00e9ed vegetables (like bell peppers, onions, zucchini) and beans, topped with avocado and queso fresco, served in a corn tortilla.",
+    "imageUrl": "https://img.taste.com.au/J58ry7EH/w720-h480-cfill-q80/taste/2022/04/cuban-vegetarian-tacos-177724-1.jpg",
+    "price": 12,
+    "category": "Tacos",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Chicken Tinga Tacos",
+    "description": "Shredded chicken cooked in a spicy, smoky tomato sauce with onions and chipotle peppers, garnished with avocado slices and queso fresco.",
+    "imageUrl": "https://hips.hearstapps.com/hmg-prod/images/chicken-tinga-5-1579643696.jpg?crop=0.888888888888889xw:1xh;center,top&resize=1200:*",
+    "price": 13.99,
+    "category": "Tacos",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Al Pastor Tacos",
+    "description": "Marinated pork shoulder that's been thinly sliced, cooked on a vertical rotisserie, and served with pineapple, onions, and cilantro.",
+    "imageUrl": "https://thestayathomechef.com/wp-content/uploads/2019/07/Tacos-al-Pastor-2-1.jpg",
+    "price": 13,
+    "category": "Tacos",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Carnitas Tacos",
+    "description": "Slow-cooked pork shoulder, pulled apart and then crisped up in the oven or pan, served with diced onions, cilantro, and a squeeze of lime.",
+    "imageUrl": "https://www.inspiredtaste.net/wp-content/uploads/2022/11/Carnitas-1200-1200x800.jpg",
+    "price": 11.99,
+    "category": "Tacos",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Carne Asada Tacos",
+    "description": "Grilled and sliced beef, typically skirt or flank steak, marinated in citrus and spices, served in corn tortillas with onions, cilantro, and salsa.",
+    "imageUrl": "https://plumstreetcollective.com/wp-content/uploads/2020/04/Carne-Asada-Tacos-with-Lime-Crema-11-500x375.jpg",
+    "price": 14,
+    "category": "Tacos",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Broccoli Salad",
+    "description": "Crunchy raw broccoli florets mixed with crispy bacon, red onion, raisins or cranberries, and sunflower seeds, tossed in a creamy dressing.",
+    "imageUrl": "https://www.connoisseurusveg.com/wp-content/uploads/2022/06/vegan-broccoli-salad-sq.jpg",
+    "price": 10.99,
+    "category": "Salad",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Tabbouleh",
+    "description": "A Middle Eastern salad made from bulgur wheat, finely chopped parsley, mint, tomato, and spring onions, dressed in lemon juice and olive oil.",
+    "imageUrl": "https://cdn.loveandlemons.com/wp-content/uploads/2022/08/tabbouleh.jpg",
+    "price": 16.99,
+    "category": "Salad",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Quinoa Salad",
+    "description": "A hearty, nutritious salad with cooked quinoa, black beans, corn, avocado, tomatoes, and cilantro, dressed in lime juice and olive oil.",
+    "imageUrl": "https://cdn.apartmenttherapy.info/image/upload/f_jpg,q_auto:eco,c_fill,g_auto,w_1500,ar_1:1/k%2FPhoto%2FRecipes%2F2019-11-recipe-mediterranean-quinoa-salad%2F2019-10-21_Kitchn89095_Mediteranean-Quinoa-Salad",
+    "price": 17.99,
+    "category": "Salad",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Nicoise Salad",
+    "description": "A French composed salad with tomatoes, hard-boiled eggs, Ni\u00e7oise olives, anchovies, and tuna, dressed with a vinaigrette, served on a bed of lettuce.",
+    "imageUrl": "https://i2.wp.com/www.downshiftology.com/wp-content/uploads/2023/06/Nicoise-Salad-main.jpg",
+    "price": 16.99,
+    "category": "Salad",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Caprese Salad",
+    "description": "Simple Italian salad made with slices of fresh mozzarella, tomatoes, and sweet basil, seasoned with salt and olive oil, often drizzled with balsamic glaze.",
+    "imageUrl": "https://whatsgabycooking.com/wp-content/uploads/2023/06/Dinner-Party-__-Traditional-Caprese-1-1200x800-1.jpg",
+    "price": 15,
+    "category": "Salad",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Greek Salad",
+    "description": "A refreshing combination of tomatoes, cucumbers, red onions, Kalamata olives, and feta cheese, dressed with olive oil, oregano, and lemon juice.",
+    "imageUrl": "https://www.tasteofhome.com/wp-content/uploads/2018/01/Dad-s-Greek-Salad_EXPS_TOHAM25_189184_P2_MD_03_01_7b.jpg",
+    "price": 11.99,
+    "category": "Salad",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Caesar Salad",
+    "description": "Romaine lettuce and croutons dressed with Parmesan cheese, eggs, Worcestershire sauce, anchovies, garlic, Dijon mustard, lemon juice, and olive oil.",
+    "imageUrl": "https://www.vibrantplate.com/wp-content/uploads/2018/02/Caesar-salad-01.jpg",
+    "price": 12,
+    "category": "Salad",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Rainbow Roll",
+    "description": "A colorful roll featuring crab meat and cucumber inside, with slices of avocado and assorted fish like tuna, salmon, and yellowtail on top.",
+    "imageUrl": "https://www.mashed.com/img/gallery/rainbow-roll-what-you-should-know-before-ordering/l-intro-1618943604.jpg",
+    "price": 19.99,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Dragon Roll",
+    "description": "An inside-out sushi roll filled with eel and cucumber, wrapped in thinly sliced avocado that resembles dragon scales, and topped with eel sauce.",
+    "imageUrl": "https://www.corriecooks.com/wp-content/uploads/2023/05/Dragon-Roll.jpg",
+    "price": 21,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Philadelphia Roll",
+    "description": "Maki rolls containing smoked salmon, cream cheese, and cucumber, offering a creamy texture and rich flavor.",
+    "imageUrl": "https://www.sonshinekitchen.com/wp-content/uploads/2023/05/philadelphia-roll-recipe.jpg",
+    "price": 16,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Temaki",
+    "description": "Hand-rolled sushi cones made of seaweed filled with rice, fish, and vegetables, easy to eat with your hands.",
+    "imageUrl": "https://static.itdg.com.br/images/1200-675/774375583e3775acf3328a7c7a0a0470/303152-original.jpg",
+    "price": 13,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Spicy Tuna Roll",
+    "description": "Maki rolls filled with tuna mixed with a spicy mayo sauce, cucumber, and sometimes avocado, rolled in sushi rice and seaweed.",
+    "imageUrl": "https://www.mashed.com/img/gallery/spicy-tuna-roll-what-you-should-know-before-ordering/l-intro-1620154226.jpg",
+    "price": 15,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "California Roll",
+    "description": "A type of maki roll filled with crab meat (or imitation crab), cucumber, and avocado, with the rice on the outside of the seaweed.",
+    "imageUrl": "https://thekitchencommunity.org/wp-content/uploads/2023/01/image-22.jpeg",
+    "price": 12.99,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Maki",
+    "description": "Rolled sushi with seaweed on the outside, filled with rice, vegetables, and often fish or seafood, cut into bite-sized pieces.",
+    "imageUrl": "https://images.getrecipekit.com/20220727130950-maki.jpg?aspect_ratio=4:3&quality=90&",
+    "price": 13,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Sashimi",
+    "description": "Thinly sliced raw fish or seafood, served without rice, usually with soy sauce and wasabi on the side.",
+    "imageUrl": "https://rokaakor.com/wp-content/uploads/2018/10/Nigiri-vs-Sashimi_-Whats-the-Difference.jpg",
+    "price": 14.99,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Nigiri",
+    "description": "A slice of raw fish over pressed vinegared rice, often brushed with soy sauce or topped with a dab of wasabi.",
+    "imageUrl": "https://w0.peakpx.com/wallpaper/559/530/HD-wallpaper-sushi-nigiri-japanese-food-rolls-salmon-japanese-dishes.jpg",
+    "price": 15.99,
+    "category": "Sushi",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Tagliatelle ai Funghi",
+    "description": "Tagliatelle pasta with a rich and creamy wild mushroom sauce, often finished with a drizzle of truffle oil.",
+    "imageUrl": "https://www.pccmarkets.com/wp-content/uploads/2017/08/pcc-tagliatelle-ai-funghi-flo.jpg",
+    "price": 12.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Spaghetti Aglio e Olio",
+    "description": "A simple yet flavorful dish of spaghetti tossed with saut\u00e9ed garlic in olive oil and a sprinkle of chili flakes.",
+    "imageUrl": "https://www.ilbottaccio.com/web2/wp-content/uploads/2020/12/Ricetta-Spagnetti-aglio-olio-e-peperoncino-Hero-GnamAm.jpg",
+    "price": 9.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Ravioli di Ricotta e Spinaci",
+    "description": "Pillows of pasta filled with ricotta cheese and spinach, served in a butter and sage sauce.",
+    "imageUrl": "https://www.bofrost.ch/dw/image/v2/BGLH_PRD/on/demandware.static/-/Sites-CH-master-catalog/default/dw470a7766/images/10034_TORTELLI_RICOTTA_SPINAT_R.jpg?sw=845&sh=500",
+    "price": 13.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Pesto Genovese",
+    "description": "Pasta coated in a fresh basil pesto made with basil, pine nuts, Parmesan, garlic, and olive oil.",
+    "imageUrl": "https://www.funfoodfrolic.com/wp-content/uploads/2020/09/Basil-Pesto-Thumbnail-500x500.jpg",
+    "price": 11.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Lasagna Bolognese",
+    "description": "Layers of lasagna noodles, Bolognese sauce (a slow-cooked meat sauce), b\u00e9chamel sauce, and Parmesan cheese, baked until bubbly.",
+    "imageUrl": "https://d98nuyvg15rpv.cloudfront.net/s3fs-public/styles/recipes_header_image/public/recipe-images/sargento/Classic_Bolognese_Lasagna_web.jpg?itok=_Zg78V-j",
+    "price": 12.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Fettuccine Alfredo",
+    "description": "Fettuccine tossed in a luxurious sauce of butter, heavy cream, and Parmesan cheese.",
+    "imageUrl": "https://cookiesandcups.com/wp-content/uploads/2015/02/fettuccine-alfredo-7.jpg",
+    "price": 10.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Penne",
+    "description": "Penne pasta in a rich tomato sauce with vodka, cream, and a hint of red pepper flakes for heat.",
+    "imageUrl": "https://img.freepik.com/free-photo/penne-pasta-tomato-sauce-with-chicken-tomatoes-wooden-table_2829-19744.jpg",
+    "price": 9.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Spaghetti Carbonara",
+    "description": "Creamy pasta made with eggs, hard cheese (like Pecorino Romano), pancetta, and pepper.",
+    "imageUrl": "https://britishop.com/storage/imgcache/carbonara-pasta-spaghetti-alla-carbonara-P8ZSPDE__1000x600xauto.jpg",
+    "price": 8.99,
+    "category": "Pasta",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Spicy Vegan",
+    "description": "A fiery mix of jalape\u00f1os, vegan pepperoni, red onions, and vegan cheese on a tomato base, ideal for those seeking a plant-based kick.",
+    "imageUrl": "https://wickedkitchen.com/wp-content/uploads/2022/08/wicked-meaty-sheet-pizza.jpg",
+    "price": 13.99,
+    "category": "Pizza",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Four Cheese",
+    "description": "A heavenly blend of mozzarella, parmesan, gorgonzola, and goat cheese on a creamy white sauce, with a touch of garlic and herbs.",
+    "imageUrl": "https://as1.ftcdn.net/v2/jpg/05/31/53/04/1000_F_531530447_whos2IKNVHdA8xhqnfzLNfMdEVxSa3Qu.jpg",
+    "price": 10.99,
+    "category": "Pizza",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Meat Lovers'",
+    "description": "Packed with pepperoni, sausage, ham, bacon, and beef, all layered with extra cheese on a rich tomato sauce base.",
+    "imageUrl": "https://t3.ftcdn.net/jpg/00/88/29/28/360_F_88292861_1ivfqvWI8ICJn3duWjgT9rJneAlHRgEI.jpg",
+    "price": 15.99,
+    "category": "Pizza",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "BBQ Chicken",
+    "description": "Grilled chicken pieces marinated in BBQ sauce, with red onions, cilantro, and a mix of mozzarella and gouda cheeses.",
+    "imageUrl": "https://www.kitchenkonfidence.com/wp-content/uploads/2019/09/BBQ-Chicken-Pizza-6.jpg",
+    "price": 13.99,
+    "category": "Pizza",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Veggie Delight",
+    "description": "A garden of seasonal vegetables such as bell peppers, onions, mushrooms, olives, and tomatoes on a pesto base, topped with mozzarella cheese.",
+    "imageUrl": "https://nomoneynotime.com.au/imager/uploads/recipes/12569/shutterstock_2042520416-1_374635aacd4cafccef5bb0653ee5dedb.jpeg",
+    "price": 11.99,
+    "category": "Pizza",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Martini",
+    "description": "The martini is a cocktail made with gin and vermouth, and garnished with an olive or a lemon twist.",
+    "imageUrl": "https://images.immediate.co.uk/production/volatile/sites/30/2020/08/dirty-martini-a346156.jpg",
+    "price": 5.99,
+    "category": "Other",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Cosmopolitan",
+    "description": "A chic cocktail made with vodka, Cointreau, cranberry juice, and freshly squeezed or sweetened lime juice, served in a martini glass.",
+    "imageUrl": "https://i.ytimg.com/vi/M5ppUECz7T4/maxresdefault.jpg",
+    "price": 7.25,
+    "category": "Other",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Mojito",
+    "description": "A light and refreshing cocktail with white rum, fresh lime juice, mint leaves, sugar, and soda water, perfect for hot summer days.",
+    "imageUrl": "https://assets.tmecosys.com/image/upload/t_web767x639/img/recipe/ras/Assets/2900285529b5e3cec0142dd262adf5b2/Derivates/846727c55a95b7b73bbb5c1280e923f9c7bf55b3.jpg",
+    "price": 5.5,
+    "category": "Other",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Margarita",
+    "description": "A refreshing mix of tequila, lime juice, and Cointreau or triple sec, served in a salt-rimmed glass. It's a perfect balance of sweet, sour, salty, and bitter.",
+    "imageUrl": "https://ichef.bbci.co.uk/food/ic/food_16x9_832/recipes/classicmargarita_84327_16x9.jpg",
+    "price": 5.59,
+    "category": "Other",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Bloody Mary",
+    "description": "A savory cocktail made with vodka, tomato juice, and various spices and flavorings including Worcestershire sauce, hot sauces.",
+    "imageUrl": "https://static01.nyt.com/images/2020/05/17/magazine/17mag-eat/17mag-eat-superJumbo.jpg",
+    "price": 7.89,
+    "category": "Other",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Whiskey Sour",
+    "description": "A smooth mix of bourbon whiskey, lemon juice, and simple syrup, often garnished with a slice of orange and a cherry, sometimes served with an egg white for frothiness.",
+    "imageUrl": "https://www.whisky-sour.com/images/16x9/whiskey-sour-16x9.jpg",
+    "price": 5.99,
+    "category": "Other",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Negroni",
+    "description": "A bold Italian cocktail made with equal parts of gin, Campari, and sweet vermouth, served on the rocks and garnished with an orange peel.",
+    "imageUrl": "https://www.giallozafferano.com/images/228-22809/negroni-cocktail_1200x800.jpg",
+    "price": 5,
+    "category": "Other",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Tiramisu",
+    "description": "An Italian dessert layering coffee-soaked ladyfingers with a whipped mixture of eggs, sugar, and mascarpone cheese, dusted with cocoa powder for a rich, creamy treat.",
+    "imageUrl": "https://www.paesidelgusto.it/media/2023/07/tiramisu-classico.jpg",
+    "price": 7.99,
+    "category": "Dessert",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  },
+  {
+    "title": "Apple Pie",
+    "description": "A classic dessert with a flaky pastry crust, filled with spiced apple slices, and often served with ice cream or whipped cream on top.",
+    "imageUrl": "https://www.budgetbytes.com/wp-content/uploads/2022/10/Apple-Pie-plate.jpg",
+    "price": 6.99,
+    "category": "Dessert",
+    "defaultItem": true,
+    "creator": "adminUser"
+  },
+  {
+    "title": "Baklava",
+    "description": "A sweet dessert made of layers of filo pastry, filled with chopped nuts and sweetened with syrup or honey, offering a crunchy and sticky experience.",
+    "imageUrl": "https://www.365daysofbakingandmore.com/wp-content/uploads/2011/08/Baklava-1-1.jpg",
+    "price": 5.99,
+    "category": "Dessert",
+    "defaultItem": true,
+    "creator": "moderatorUser"
+  }
+]
+
