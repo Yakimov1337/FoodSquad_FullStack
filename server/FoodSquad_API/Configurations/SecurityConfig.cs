@@ -31,17 +31,17 @@ namespace FoodSquad_API.Configuration
 
         public static IServiceCollection AddCustomAuthorization(this IServiceCollection services)
         {
-
+            // Add policies for different roles
             services.AddAuthorization(options =>
             {
                 options.AddPolicy("AdminPolicy", policy =>
                     policy.RequireRole("ADMIN"));
 
                 options.AddPolicy("ModeratorPolicy", policy =>
-                    policy.RequireRole("MODERATOR"));
+                    policy.RequireRole("MODERATOR", "ADMIN"));
 
                 options.AddPolicy("UserPolicy", policy =>
-                    policy.RequireRole("NORMAL"));
+                    policy.RequireRole("NORMAL", "MODERATOR", "ADMIN"));
             });
 
             return services;
