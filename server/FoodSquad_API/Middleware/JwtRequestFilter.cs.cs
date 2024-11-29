@@ -1,21 +1,15 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc.Filters;
-using Microsoft.Extensions.DependencyInjection;
+﻿using FoodSquad_API.Services.Interfaces;
+using FoodSquad_API.Utils;
 using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
-using System.Linq;
 using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
-using FoodSquad_API.Services;
 
 public class JwtRequestFilter : IMiddleware
 {
     private readonly JwtUtil _jwtUtil;
-    private readonly AuthService _authService;
-    private readonly TokenService _tokenService;
+    private readonly IAuthService _authService;
+    private readonly ITokenService _tokenService;
 
-    public JwtRequestFilter(JwtUtil jwtUtil, AuthService authService, TokenService tokenService)
+    public JwtRequestFilter(JwtUtil jwtUtil, IAuthService authService, ITokenService tokenService)
     {
         _jwtUtil = jwtUtil;
         _authService = authService;
@@ -27,8 +21,8 @@ public class JwtRequestFilter : IMiddleware
         var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
         var requestPath = context.Request.Path.ToString();
 
-        // Skip JWT validation for specific endpoints (e.g., /api/auth/**)
-        if (requestPath.StartsWith("/api/auth"))
+        // Skip token validation for specific endpoints like auth
+        if (requestPath.StartsWith("/api/auth") || requestPath.StartsWith("/api/token"))
         {
             await next(context);
             return;
@@ -40,28 +34,27 @@ public class JwtRequestFilter : IMiddleware
             token = authorizationHeader.Substring(7);
         }
 
-        if (token != null)
+        if (!string.IsNullOrEmpty(token))
         {
             try
             {
-                var username = _jwtUtil.ExtractUsername(token);
+                var claims = _jwtUtil.ExtractClaims(token);
+                var email = claims["sub"].ToString();
 
-                // Ensure the token is valid and not expired
-                if (_jwtUtil.ValidateToken(token) && _tokenService.IsValidToken(token))
+                // Load user details and validate token
+                var userDetails = await _authService.LoadUserEntityByUsernameAsync(email);
+                if (_jwtUtil.ValidateToken(token, userDetails) &&
+                    await _tokenService.IsRefreshTokenValidAsync(email, token))
                 {
-                    var user = _authService.LoadUserByUsername(username);
-
-                    var claims = new ClaimsPrincipal(new ClaimsIdentity(user.Claims, "Bearer"));
-                    context.User = claims;
+                    var identity = new ClaimsIdentity(claims.Select(c => new Claim(c.Key, c.Value.ToString())), "Bearer");
+                    context.User = new ClaimsPrincipal(identity);
                 }
-            }
-            catch (SecurityTokenExpiredException)
-            {
-                context.Items["expired"] = "Token expired";
             }
             catch (SecurityTokenException)
             {
-                context.Items["invalid"] = "Invalid token";
+                context.Response.StatusCode = 401;
+                await context.Response.WriteAsync("Invalid token");
+                return;
             }
         }
 
