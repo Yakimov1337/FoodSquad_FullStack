@@ -2,6 +2,7 @@
 using FoodSquad_API.Models.Enums;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace FoodSquad_API.Data
 {
@@ -18,6 +19,14 @@ namespace FoodSquad_API.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+
+            modelBuilder.Entity<User>(entity =>
+            {
+                entity.Property(e => e.Role)
+                      .HasConversion(new EnumToStringConverter<UserRole>())
+                      .HasColumnType("nvarchar(50)"); // Adjust the column type as needed
+            });
+
             // Users -> Reviews
             modelBuilder.Entity<Review>()
                 .HasOne(r => r.User)
