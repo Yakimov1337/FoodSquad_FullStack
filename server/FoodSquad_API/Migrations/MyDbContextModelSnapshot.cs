@@ -22,7 +22,7 @@ namespace FoodSquad_API.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("FoodSquad_API.Models.MenuItem", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.MenuItem", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace FoodSquad_API.Migrations
                     b.ToTable("MenuItems");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.Order", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.Order", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -94,7 +94,7 @@ namespace FoodSquad_API.Migrations
                     b.ToTable("Orders");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.OrderMenuItem", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.OrderMenuItem", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -118,7 +118,7 @@ namespace FoodSquad_API.Migrations
                     b.ToTable("OrderMenuItems");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.Review", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.Review", b =>
                 {
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd()
@@ -152,39 +152,7 @@ namespace FoodSquad_API.Migrations
                     b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.Token", b =>
-                {
-                    b.Property<long>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("bigint");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
-
-                    b.Property<string>("AccessToken")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("AccessTokenExpiryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<string>("RefreshToken")
-                        .IsRequired()
-                        .HasColumnType("TEXT");
-
-                    b.Property<DateTime>("RefreshTokenExpiryDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("UserId");
-
-                    b.ToTable("Tokens");
-                });
-
-            modelBuilder.Entity("FoodSquad_API.Models.User", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.User", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -224,9 +192,41 @@ namespace FoodSquad_API.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.MenuItem", b =>
+            modelBuilder.Entity("Token", b =>
                 {
-                    b.HasOne("FoodSquad_API.Models.User", "User")
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bigint");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<long>("Id"));
+
+                    b.Property<string>("AccessToken")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR(MAX)");
+
+                    b.Property<DateTime>("AccessTokenExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("RefreshToken")
+                        .IsRequired()
+                        .HasColumnType("NVARCHAR(MAX)");
+
+                    b.Property<DateTime>("RefreshTokenExpiryDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserId");
+
+                    b.ToTable("Tokens");
+                });
+
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.MenuItem", b =>
+                {
+                    b.HasOne("FoodSquad_API.Models.Entity.User", "User")
                         .WithMany("MenuItems")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -235,9 +235,9 @@ namespace FoodSquad_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.Order", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.Order", b =>
                 {
-                    b.HasOne("FoodSquad_API.Models.User", "User")
+                    b.HasOne("FoodSquad_API.Models.Entity.User", "User")
                         .WithMany("Orders")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -246,15 +246,15 @@ namespace FoodSquad_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.OrderMenuItem", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.OrderMenuItem", b =>
                 {
-                    b.HasOne("FoodSquad_API.Models.MenuItem", "MenuItem")
+                    b.HasOne("FoodSquad_API.Models.Entity.MenuItem", "MenuItem")
                         .WithMany()
                         .HasForeignKey("MenuItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FoodSquad_API.Models.Order", "Order")
+                    b.HasOne("FoodSquad_API.Models.Entity.Order", "Order")
                         .WithMany("MenuItemsWithQuantity")
                         .HasForeignKey("OrderId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -265,15 +265,15 @@ namespace FoodSquad_API.Migrations
                     b.Navigation("Order");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.Review", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.Review", b =>
                 {
-                    b.HasOne("FoodSquad_API.Models.MenuItem", "MenuItem")
+                    b.HasOne("FoodSquad_API.Models.Entity.MenuItem", "MenuItem")
                         .WithMany("Reviews")
                         .HasForeignKey("MenuItemId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("FoodSquad_API.Models.User", "User")
+                    b.HasOne("FoodSquad_API.Models.Entity.User", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
@@ -284,9 +284,9 @@ namespace FoodSquad_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.Token", b =>
+            modelBuilder.Entity("Token", b =>
                 {
-                    b.HasOne("FoodSquad_API.Models.User", "User")
+                    b.HasOne("FoodSquad_API.Models.Entity.User", "User")
                         .WithMany("Tokens")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -295,17 +295,17 @@ namespace FoodSquad_API.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.MenuItem", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.MenuItem", b =>
                 {
                     b.Navigation("Reviews");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.Order", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.Order", b =>
                 {
                     b.Navigation("MenuItemsWithQuantity");
                 });
 
-            modelBuilder.Entity("FoodSquad_API.Models.User", b =>
+            modelBuilder.Entity("FoodSquad_API.Models.Entity.User", b =>
                 {
                     b.Navigation("MenuItems");
 
