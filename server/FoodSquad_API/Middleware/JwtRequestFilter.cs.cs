@@ -1,5 +1,4 @@
 ﻿using FoodSquad_API.Services.Interfaces;
-using FoodSquad_API.Utils;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 
@@ -21,41 +20,69 @@ public class JwtRequestFilter : IMiddleware
         var authorizationHeader = context.Request.Headers["Authorization"].FirstOrDefault();
         var requestPath = context.Request.Path.ToString();
 
-        // Skip token validation for specific endpoints like auth
-        if (requestPath.StartsWith("/api/auth") || requestPath.StartsWith("/api/token"))
+        // Skip validation for auth-related endpoints
+        if (requestPath.StartsWith("/api/auth") || requestPath.StartsWith("/api/tokens"))
         {
             await next(context);
             return;
         }
 
-        string token = null;
-        if (authorizationHeader != null && authorizationHeader.StartsWith("Bearer "))
+        if (authorizationHeader == null || !authorizationHeader.StartsWith("Bearer "))
         {
-            token = authorizationHeader.Substring(7);
+            Console.WriteLine($"[DEBUG] Invalid or missing Authorization header for path: {requestPath}");
+            await next(context);
+            return;
         }
 
-        if (!string.IsNullOrEmpty(token))
-        {
-            try
-            {
-                var claims = _jwtUtil.ExtractClaims(token);
-                var email = claims["sub"].ToString();
+        var token = authorizationHeader.Substring(7);
 
-                // Load user details and validate token
-                var userDetails = await _authService.LoadUserEntityByUsernameAsync(email);
-                if (_jwtUtil.ValidateToken(token, userDetails) &&
-                    await _tokenService.IsRefreshTokenValidAsync(email, token))
-                {
-                    var identity = new ClaimsIdentity(claims.Select(c => new Claim(c.Key, c.Value.ToString())), "Bearer");
-                    context.User = new ClaimsPrincipal(identity);
-                }
-            }
-            catch (SecurityTokenException)
+        try
+        {
+            if (string.IsNullOrEmpty(token))
             {
-                context.Response.StatusCode = 401;
-                await context.Response.WriteAsync("Invalid token");
+                Console.WriteLine("[DEBUG] Token is null or empty.");
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                await context.Response.WriteAsync("Invalid token.");
                 return;
             }
+
+            var claims = _jwtUtil.ExtractClaims(token);
+            if (claims == null)
+            {
+                Console.WriteLine("[DEBUG] Failed to extract claims from token.");
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                await context.Response.WriteAsync("Invalid token: Failed to extract claims.");
+                return;
+            }
+
+            var email = claims.TryGetValue("email", out var emailValue) ? emailValue?.ToString() : null;
+            var role = claims.TryGetValue("role", out var roleValue) ? roleValue?.ToString() : null;
+
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(role))
+            {
+                Console.WriteLine("[DEBUG] Missing required claims. Email or Role is null.");
+                context.Response.StatusCode = StatusCodes.Status401Unauthorized;
+                await context.Response.WriteAsync("Invalid token: Missing required claims.");
+                return;
+            }
+
+            // Attach claims to the user context
+            var identity = new ClaimsIdentity(new[]
+            {
+                new Claim(ClaimTypes.Email, email),
+                new Claim(ClaimTypes.Role, role)
+            }, "Bearer");
+
+            context.User = new ClaimsPrincipal(identity);
+
+            Console.WriteLine($"[DEBUG] Token validated. User Email: {email}, Role: {role}");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"[DEBUG] Exception during token validation: {ex.Message}");
+            context.Response.StatusCode = StatusCodes.Status500InternalServerError;
+            await context.Response.WriteAsync("An internal error occurred while processing the request.");
+            return;
         }
 
         await next(context);
