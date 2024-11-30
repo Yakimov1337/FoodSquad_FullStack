@@ -13,5 +13,6 @@ namespace FoodSquad_API.Repositories.Interfaces
         Task DeleteByUserAsync(Guid userId);
         Task DeleteByAccessTokenAsync(string accessToken);
         Task DeleteByRefreshTokenAsync(string refreshToken);
+        Task<Token> FindByAccessTokenAsync(string accessToken);
     }
 }
