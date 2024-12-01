@@ -105,25 +105,73 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
     ng serve
     ```
 
-### Backend Setup
 
-1. **Navigate to the Backend Directory**
-    ```bash
-    cd ../server
-    ```
+## Backend Setup 🛠️
 
-2. **Build and Run the Backend Server**
-    - Ensure you have Java 17 and Maven installed.
-    ```bash
-    ./mvnw clean package
-    ./mvnw spring-boot:run
-    ```
+### 1. **Clone the Repository**
 
-3. **Configure the Backend**
-    - Update `src/main/resources/application.properties` with your database and environment configurations.
+   ```bash
+   git clone https://github.com/Yakimov1337/FoodApp_FullStack.git
+   cd FoodApp_FullStack/server
+   ```
 
-4. **Access the Backend**
-    - By default, the backend runs on `http://localhost:8080`.
+---
+
+### 2. **Configure the Application**
+
+   - Open the `appsettings.json` file in the `FoodSquad_API` project.
+   - Update the `DefaultConnection` string with your database server details.
+
+   Example:
+   ```json
+   {
+       "ConnectionStrings": {
+           "DefaultConnection": "Server=YourServerName;Database=FoodSquadDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+       }
+   }
+   ```
+
+---
+
+### 3. **Build and Run the Application**
+
+   - Open the solution in Visual Studio 2022 or newer.
+   - Restore the NuGet packages and build the project:
+
+     ```bash
+     dotnet restore
+     dotnet build
+     ```
+
+   - Run the project using Visual Studio or the .NET CLI:
+
+     ```bash
+     dotnet run --project FoodSquad_API
+     ```
+
+---
+
+### 4. **Automatic Database Setup**
+
+   - The application is configured to automatically handle migrations and seeding. 
+   - When the application is run:
+     1. All pending migrations will be applied to the database.
+     2. Default data (e.g., users, roles, menu items) will be seeded into the database.
+
+   **Note**: Ensure the database server is running before starting the application.
+
+---
+
+### 5. **Access the API**
+
+   - By default, the backend runs on `https://localhost:7238`.
+   - Swagger documentation is available at:  
+     [Swagger UI](https://localhost:7238/swagger)
+
+   Example Screenshot of the Swagger UI:  
+   ![Swagger UI Screenshot](https://i.ibb.co/DGHR5v1/Screenshot-37.png)
+
+---
 
 ## 🖥️ Usage
 
