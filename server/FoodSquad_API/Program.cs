@@ -7,6 +7,7 @@ using FoodSquad_API.Seeders;
 using FoodSquad_API.Middleware;
 using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
+using Swashbuckle.AspNetCore.Filters;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -69,6 +70,10 @@ builder.Services.AddCors(options =>
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
+    options.EnableAnnotations(); // Enable Swagger annotations
+    options.ExampleFilters();  // Add the Request Example Filter
+
+
     // Add Bearer token authentication
     options.AddSecurityDefinition("Bearer", new Microsoft.OpenApi.Models.OpenApiSecurityScheme
     {
@@ -98,6 +103,10 @@ builder.Services.AddSwaggerGen(options =>
     // Add operation filter to include examples
     options.OperationFilter<SwaggerDefaultValues>();
 });
+
+// Register the examples provider for swagger
+builder.Services.AddSwaggerExamplesFromAssemblyOf<Program>();
+
 
 builder.Services.AddTransient<DatabaseSeeder>();
 
