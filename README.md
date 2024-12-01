@@ -16,9 +16,10 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
 
 ## 🛠️ Tech Stack
 
-- **🔹 Frontend**: Angular 17, Tailwind CSS for styling.
-- **🔸 Backend**: Java Spring Boot 3 for a robust server-side experience.
-- **🌐 Payment Integration**: Stripe for secure financial transactions.
+- **🔹 Frontend**: Angular 17, styled with Tailwind CSS for modern and responsive UI designs.
+- **🔸 Backend**: ASP.NET Core 8 for a robust and scalable server-side experience.
+- **🌐 Payment Integration**: Stripe for secure and seamless financial transactions.
+- **📜 API Documentation**: Brief documentation about the API can be found in the `server` folder.
 
 ## 📸 Pages Overview
 
