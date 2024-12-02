@@ -31,12 +31,13 @@ public class MappingProfile : Profile
 
         CreateMap<MenuItemCreateDTO, MenuItem>();
         CreateMap<MenuItem, MenuItemDTO>();
-        CreateMap<MenuItemDTO, MenuItem>().ReverseMap(); // Map both ways
-        CreateMap<MenuItemCreateDTO, MenuItem>(); // Map from CreateDTO to Entity
+        CreateMap<MenuItemDTO, MenuItem>().ReverseMap(); 
+        CreateMap<MenuItemCreateDTO, MenuItem>();
         CreateMap<MenuItemUpdateDTO, MenuItem>();
         CreateMap<MenuItem, MenuItemUpdateDTO>();
 
         CreateMap<OrderCreateDTO, Order>();
         CreateMap<OrderUpdateDTO, Order>();
+
     }
 }
