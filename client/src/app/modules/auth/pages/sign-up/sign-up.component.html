@@ -1,0 +1,144 @@
+<form class="my-5 space-y-6" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+  <div class="text-center">
+    <h2 class="mb-1 text-3xl font-semibold text-foreground">Sign Up <span class="text-primary">!</span></h2>
+    <p class="text-sm text-muted-foreground">Let's get started with your 30 day free trial</p>
+  </div>
+
+  <div>
+    <app-button (click)="googleAuth($event)" full impact="bold" tone="light" shape="rounded" size="medium">
+      <svg-icon src="assets/icons/google-logo.svg" [svgClass]="'h-6 w-6 mr-2'"> </svg-icon>
+      Sign Up with Google
+    </app-button>
+  </div>
+
+  <div
+    class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-muted after:mt-0.5 after:flex-1 after:border-t after:border-muted">
+    <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">or</p>
+  </div>
+
+  <div class="space-y-3 text-left">
+    <!-- Email Field with Dynamic Label/Error Message -->
+    <div class="relative">
+      <input
+        type="email"
+        id="email"
+        formControlName="email"
+        autocomplete="email"
+        class="peer block placeholder-transparent"
+        placeholder=" "
+        [class.border-red-500]="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid" />
+      <label
+        for="email"
+        class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-background px-2 text-sm text-muted-foreground duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary"
+        [class.text-red-500]="signUpForm.get('email')?.touched && signUpForm.get('email')?.invalid">
+        <ng-container *ngIf="signUpForm.get('email')?.touched">
+          <ng-container *ngIf="signUpForm.get('email')?.errors?.['required']"> Email is required </ng-container>
+          <ng-container
+            *ngIf="!signUpForm.get('email')?.errors?.['required'] && signUpForm.get('email')?.errors?.['pattern']">
+            Please enter a valid email address
+          </ng-container>
+          <ng-container *ngIf="!signUpForm.get('email')?.errors"> Email address </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!signUpForm.get('email')?.touched"> Email address </ng-container>
+      </label>
+    </div>
+
+    <!-- Password Field with Dynamic Label/Error Message -->
+    <div class="relative">
+      <input
+      [type]="passwordTextType ? 'text' : 'password'"
+        id="password"
+        formControlName="password"
+        class="peer block placeholder-transparent"
+        placeholder=" "
+        autocomplete="new-password"
+        [class.border-red-500]="signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid" />
+      <label
+        for="password"
+        class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-background px-2 text-sm text-muted-foreground duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary"
+        [class.text-red-500]="signUpForm.get('password')?.touched && signUpForm.get('password')?.invalid">
+        <!-- Dynamic label text based on validation state -->
+        <ng-container *ngIf="signUpForm.get('password')?.touched">
+          <ng-container *ngIf="signUpForm.get('password')?.errors?.['required']"> Password is required </ng-container>
+          <ng-container
+            *ngIf="!signUpForm.get('password')?.errors?.['required'] && signUpForm.get('password')?.errors?.['minlength']">
+            Password must be at least 6 characters long
+          </ng-container>
+          <ng-container *ngIf="!signUpForm.get('password')?.errors"> Password </ng-container>
+        </ng-container>
+        <ng-container *ngIf="!signUpForm.get('password')?.touched"> Password </ng-container>
+      </label>
+      <span class="absolute top-2.5 right-5 cursor-pointer text-muted-foreground" (click)="togglePasswordTextType()">
+        <svg-icon
+          [src]="
+            !passwordTextType
+              ? 'assets/icons/heroicons/outline/eye-off.svg'
+              : 'assets/icons/heroicons/outline/eye.svg'
+          "
+          [svgClass]="'h-5 w-5'">
+        </svg-icon>
+      </span>
+    </div>
+
+    <!-- Password Meeter -->
+    <div class="grid grid-cols-4 gap-2">
+      <div
+        *ngFor="let filled of passwordStrength; index as i"
+        class="h-1 rounded-sm"
+        [ngClass]="filled ? 'bg-primary' : 'bg-muted'"></div>
+    </div>
+    <span class="text-xs text-muted-foreground">
+      Use 6 or more characters with a mix of letters, numbers & symbols.
+    </span>
+    <div class="relative">
+      <input
+      [type]="passwordTextType ? 'text' : 'password'"
+        id="confirm-password"
+        formControlName="confirmPassword"
+        class="peer block"
+        placeholder=" "
+        autocomplete="new-password" />
+      <label
+        for="confirm-password"
+        class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-background px-2 text-sm text-muted-foreground duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary">
+        Confirm Password
+      </label>
+      <span class="absolute top-2.5 right-5 cursor-pointer text-muted-foreground" (click)="togglePasswordTextType()">
+        <svg-icon
+          [src]="
+            !passwordTextType
+              ? 'assets/icons/heroicons/outline/eye-off.svg'
+              : 'assets/icons/heroicons/outline/eye.svg'
+          "
+          [svgClass]="'h-5 w-5'">
+        </svg-icon>
+      </span>
+    </div>
+  </div>
+
+  <div class="flex items-center justify-between space-x-3">
+    <div class="flex items-center gap-1">
+      <input id="accept-term" name="accept-term" type="checkbox" />
+      <label for="accept-term" class="ml-2 block text-sm text-muted-foreground"> I Accept the </label>
+      <app-button impact="none" tone="primary" shape="rounded" size="small"> Terms </app-button>
+    </div>
+  </div>
+
+  <!-- Submit Button -->
+  <div>
+    <app-button full impact="bold" tone="primary" shape="rounded" size="medium">
+      <ng-container *ngIf="!isLoading; else spinnerTemplate">Sign up</ng-container>
+      <ng-template #spinnerTemplate>
+        <div class="spinner"></div>
+      </ng-template>
+    </app-button>
+  </div>
+
+  <!-- Sign-up -->
+  <div class="flex items-center text-sm text-muted-foreground">
+    Already have an Account?
+    <app-button routerLink="/auth/sign-in" impact="none" tone="primary" shape="rounded" size="small">
+      Sign in
+    </app-button>
+  </div>
+</form>

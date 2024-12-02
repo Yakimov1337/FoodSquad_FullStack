@@ -1,0 +1,129 @@
+<!-- login form -->
+<form class="my-5 space-y-6" [formGroup]="form">
+  <div class="text-center">
+    <h2 class="mb-1 text-3xl font-semibold text-foreground">Hello Again <span class="text-primary">!</span></h2>
+    <p class="text-sm text-muted-foreground">Enter your credential to access your account.</p>
+  </div>
+
+  <div>
+    <app-button (click)="googleAuth($event)" full impact="bold" tone="light" shape="rounded" size="medium">
+      <svg-icon src="assets/icons/google-logo.svg" [svgClass]="'h-6 w-6 mr-2'"> </svg-icon>
+      Log in with Google
+    </app-button>
+  </div>
+
+  <div
+    class="my-4 flex items-center before:mt-0.5 before:flex-1 before:border-t before:border-muted after:mt-0.5 after:flex-1 after:border-t after:border-muted">
+    <p class="mx-4 mb-0 text-center text-sm text-muted-foreground">or</p>
+  </div>
+
+  <div class="space-y-3 text-left">
+    <div class="form__group">
+      <div class="relative">
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          autocomplete="email"
+          class="peer block placeholder-transparent"
+          placeholder=" "
+          [class.border-red-500]="form.get('email')?.touched && form.get('email')?.invalid" />
+        <label
+          for="email"
+          class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-background px-2 text-sm text-muted-foreground duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary"
+          [class.text-red-500]="form.get('email')?.touched && form.get('email')?.invalid">
+          <ng-container *ngIf="form.get('email')?.touched">
+            <ng-container *ngIf="form.get('email')?.errors?.['required']"> Email is required </ng-container>
+            <ng-container *ngIf="!form.get('email')?.errors?.['required'] && form.get('email')?.errors?.['pattern']">
+              Please enter a valid email address
+            </ng-container>
+            <ng-container *ngIf="!form.get('email')?.errors"> Email address </ng-container>
+          </ng-container>
+          <ng-container *ngIf="!form.get('email')?.touched"> Email address </ng-container>
+        </label>
+      </div>
+    </div>
+
+    <div class="form__group">
+      <div class="relative">
+        <input
+          [type]="passwordTextType ? 'text' : 'password'"
+          id="password"
+          [ngClass]="{ 'is__invalid-input': submitted && f['email'].errors }"
+          class="peer block"
+          placeholder=" "
+          formControlName="password"
+          autocomplete="password" />
+        <label
+          for="password"
+          class="absolute top-2 left-1 z-10 origin-[0] -translate-y-4 scale-95 transform bg-background px-2 text-sm text-muted-foreground duration-300 peer-placeholder-shown:top-1/2 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:scale-100 peer-focus:top-2 peer-focus:-translate-y-4 peer-focus:scale-95 peer-focus:px-2 peer-focus:text-primary"
+          [class.text-red-500]="form.get('password')?.touched && form.get('password')?.invalid">
+          <!-- Dynamic label text based on validation state -->
+          <ng-container *ngIf="form.get('password')?.touched">
+            <ng-container *ngIf="form.get('password')?.errors?.['required']"> Password is required </ng-container>
+            <ng-container
+              *ngIf="!form.get('password')?.errors?.['required'] && form.get('password')?.errors?.['minlength']">
+              Password must be at least 8 characters long
+            </ng-container>
+            <ng-container *ngIf="!form.get('password')?.errors"> Password </ng-container>
+          </ng-container>
+          <ng-container *ngIf="!form.get('password')?.touched"> Password </ng-container>
+        </label>
+        <span class="absolute top-2.5 right-5 cursor-pointer text-muted-foreground" (click)="togglePasswordTextType()">
+          <svg-icon
+            [src]="
+              !passwordTextType
+                ? 'assets/icons/heroicons/outline/eye-off.svg'
+                : 'assets/icons/heroicons/outline/eye.svg'
+            "
+            [svgClass]="'h-5 w-5'">
+          </svg-icon>
+        </span>
+      </div>
+      <div *ngIf="submitted && f['password'].errors" class="is__invalid-error">
+        <div *ngIf="f['password'].errors['required']">Required field</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-2 flex items-center justify-between space-x-3">
+    <div class="flex items-center">
+      <input id="remember-me" name="remember-me" type="checkbox" />
+      <label for="remember-me" class="ml-2 block text-sm text-muted-foreground"> Remember me </label>
+    </div>
+
+    <app-button routerLink="/auth/forgot-password" impact="none" tone="primary" shape="rounded" size="small">
+      Forgot your password?
+    </app-button>
+  </div>
+
+  <!-- Submit Button -->
+  <div class="flex flex-col gap-2">
+    <app-button (click)="loginAsUser()" full impact="bold" tone="primary" shape="rounded" size="medium">
+      <ng-container *ngIf="!isLoadingUser; else spinnerTemplate"> Sign in </ng-container>
+      <ng-template #spinnerTemplate>
+        <div class="spinner"></div>
+      </ng-template>
+    </app-button>
+    <!-- Admin login button -->
+    <app-button type="button" (click)="loginAsAdmin()" full impact="bold" tone="danger" shape="rounded" size="medium">
+      <ng-container *ngIf="!isLoadingAdmin; else spinnerTemplate"> Test Admin session (Softuni only) </ng-container>
+    </app-button>
+
+    <!-- Moderator login button -->
+    <app-button type="button" (click)="loginAsModerator()" full impact="bold" tone="info" shape="rounded" size="medium">
+      <ng-container *ngIf="!isLoadingModerator; else spinnerTemplate"> Test Moderator session </ng-container>
+    </app-button>
+    <app-button type="button" (click)="swaggerRedirect()" full impact="bold" tone="success" shape="rounded" size="medium">
+      <span class="text-white"> Swagger API Documentation </span>
+    </app-button>
+  </div>
+
+  <!-- Sign-up -->
+  <div class="flex items-center text-sm text-muted-foreground">
+    Not a Member yet?
+    <app-button type="button" routerLink="/auth/sign-up" impact="none" tone="primary" shape="rounded" size="small">
+      Sign up
+    </app-button>
+  </div>
+</form>
