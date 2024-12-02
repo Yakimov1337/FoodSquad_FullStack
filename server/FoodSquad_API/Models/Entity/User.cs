@@ -29,7 +29,7 @@ namespace FoodSquad_API.Models.Entity
         public UserRole Role { get; set; } = UserRole.Normal;
 
         [Required]
-        public string ImageUrl { get; set; } = "https://example.com/default-avatar.png";
+        public string ImageUrl { get; set; } = "https://www.pngarts.com/files/11/Avatar-Transparent-Images.png";
 
         [Required]
         public string PhoneNumber { get; set; } = "000-000-0000";
