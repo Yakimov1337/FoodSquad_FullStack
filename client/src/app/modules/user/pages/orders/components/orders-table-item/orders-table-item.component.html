@@ -1,0 +1,48 @@
+<td class="py-2 pr-2">
+  <div class="flex items-center">
+    <img
+      src="./assets/icons/heroicons/outline/delivery.svg "
+      class="mr-2 h-10 w-10 flex-none rounded-md p-0.5 dark:bg-white"
+      alt="" />
+    <div class="flex min-w-0 flex-col justify-items-start">
+      <span class="mb-1 truncate text-sm font-semibold text-foreground">{{ order.id }}</span>
+      <span class="truncate text-xs font-semibold text-muted-foreground/50">{{ order.totalCost | currency }}</span>
+    </div>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="flex items-center justify-center">
+    <span
+      class="min-w-[96px] rounded-md p-1.5 text-sm font-semibold text-white"
+      [ngClass]="{
+        'bg-yellow-500/70': order.status === 'PENDING',
+        'bg-green-500/70 ': order.status === 'COMPLETED',
+        'bg-red-500/70 ': order.status === 'CANCELLED'
+      }"
+      >{{ order.status }}</span
+    >
+  </div>
+</td>
+<td class="py-2 text-center">
+  <span class="text-sm font-semibold text-muted-foreground">{{ order.createdOn | date: 'shortDate' }}</span>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <app-button impact="light" tone="success" shape="rounded" size="medium"
+      >
+      {{ order.totalCost | currency:'USD':'symbol':'1.0-0' }}
+    </app-button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <!-- Assuming menuItem.isAvailable is the boolean property -->
+    <app-button impact="light" [tone]="order.paid ? 'success' : 'danger'" shape="rounded" size="medium">
+      {{ order.paid ? 'Yes' : 'No' }}
+    </app-button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <span class="text-sm font-semibold text-muted-foreground">{{ order.userEmail }}</span>
+</td>
+

@@ -1,0 +1,17 @@
+<div class="flex min-h-screen flex-col">
+  <ng-container>
+    <!-- Navigation -->
+    <app-navbar></app-navbar>
+
+    <!-- Use flex grow so footer is always at the bottom no matter of the content size -->
+    <div class="flex-grow">
+      <router-outlet></router-outlet>
+    </div>
+    
+    <!-- SHOPPING CART -->
+    <app-cart></app-cart>
+
+    <!-- USER FOOTER -->
+    <app-footer></app-footer>
+  </ng-container>
+</div>

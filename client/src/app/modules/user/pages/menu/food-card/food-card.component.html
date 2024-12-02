@@ -1,0 +1,74 @@
+<div class="relative flex items-center justify-center" @fadeInOut>
+  <div
+    class="z-10 mx-auto w-full max-w-md overflow-hidden rounded-3xl border-2 border-primary bg-white shadow-md shadow-primary dark:bg-transparent">
+    <div class="group mx-auto max-w-md cursor-pointer transition duration-500 hover:scale-105">
+      <div class="aspect-w-16 aspect-h-9 relative bg-gray-200">
+        <!-- Always display the compressed image initially -->
+        <img
+          src="./assets/images/compress.jpg"
+          class="absolute top-0 left-0 h-full w-full object-cover blur"
+          loading="lazy" />
+
+        <!-- High-quality image with direct event binding to change its visibility -->
+        <img
+          [hidden]="!imageLoaded"
+          (load)="imageLoaded = true"
+          [src]="item.imageUrl"
+          alt="{{ item.title }}"
+          class="absolute top-0 left-0 h-full w-full object-cover"
+          loading="lazy" />
+      </div>
+      <div class="flex min-h-[300px] flex-col p-4 sm:p-6">
+        <p class="mb-1 text-[22px] font-bold leading-7 text-gray-700 dark:text-white">{{ item.title }}</p>
+        <div class="flex flex-row justify-between py-2">
+          <div class="flex flex-row">
+            <p class="mr-2 text-[17px] text-[#3C3C4399] line-through dark:text-white">
+              {{ item.price + 5 | currency }}
+            </p>
+            <p class="text-[17px] font-bold text-[#0FB478]">{{ item.price | currency }}</p>
+          </div>
+          <div class="flex items-center">
+            <svg
+              class="mr-1 h-6 w-6 text-yellow-500"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="currentColor"
+              viewBox="0 0 22 20">
+              <path
+                d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z" />
+            </svg>
+            <p class="text-lg font-bold text-gray-900 dark:text-white">{{ item.averageRating }}</p>
+            <span class="mx-1.5 h-1 w-1 rounded-full bg-gray-500 dark:bg-gray-400"></span>
+            <button
+              (click)="openUserReviewsModal(item.id)"
+              class="text-base font-medium text-gray-900 underline hover:no-underline dark:text-white">
+              {{ item.reviewCount }} reviews
+            </button>
+          </div>
+        </div>
+        <div>
+          <p class="font-[15px] text-[#7C7C80] transition ease-in-out dark:text-white">
+            {{
+              showFullDescription || item.description.length <= 50
+                ? item.description
+                : (item.description | slice: 0:60) + '...'
+            }}
+          </p>
+          <button *ngIf="item.description.length > 50" (click)="toggleDescription()" class="mt-2 text-primary">
+            {{ showFullDescription ? 'Show Less' : 'Read More' }}
+          </button>
+        </div>
+        <button
+          (click)="addToCart(item)"
+          class="mt-4 w-full cursor-pointer rounded-[14px] bg-primary px-4 py-3 text-center font-medium capitalize tracking-wide text-white transition-colors duration-300 focus:outline-none focus:ring focus:ring-opacity-80 hover:opacity-75">
+          Add to cart
+        </button>
+        <button
+          (click)="openReviewModal(item.id)"
+          class="mt-4 w-full cursor-pointer rounded-[14px] bg-gradient-to-r from-purple-500 to-indigo-600 px-4 py-3 text-center font-medium capitalize tracking-wide text-white transition-colors duration-300 focus:outline-none focus:ring focus:ring-opacity-80 hover:opacity-75">
+          Submit a review
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<section class="relative overflow-hidden pb-12">
+  <!-- Background with opacity -->
+  <div class="absolute inset-0 z-0 bg-cover bg-no-repeat bg-center"
+       style="background-image: url('./assets/images/background-3.jpg');">
+    <div class="absolute inset-0 bg-black opacity-10"></div>
+  </div>
+
+  <div class="container mx-auto px-12 py-8 text-white z-10 relative mt-24 border-2 border-white/50 shadow-lg shadow-white/50 bg-background/20 rounded-lg">
+
+    <h1 class="text-3xl font-bold mb-4">{{ 'ABOUT_US.TITLE' | translate }}</h1>
+
+    <p class="text-lg text-white mb-6">{{ 'ABOUT_US.DESCRIPTION' | translate }}</p>
+
+    <h2 class="text-2xl font-bold mb-2">{{ 'ABOUT_US.MISSION.TITLE' | translate }}</h2>
+    <p class="text-lg text-white mb-6">{{ 'ABOUT_US.MISSION.DESCRIPTION' | translate }}</p>
+
+    <h2 class="text-2xl font-bold mb-2">{{ 'ABOUT_US.VISION.TITLE' | translate }}</h2>
+    <p class="text-lg text-white mb-6">{{ 'ABOUT_US.VISION.DESCRIPTION' | translate }}</p>
+
+    <h2 class="text-2xl font-bold mb-2">{{ 'ABOUT_US.UNIQUENESS.TITLE' | translate }}</h2>
+    <ul class="list-disc text-lg text-white mb-6 pl-6">
+      <li *ngFor="let feature of (translationData['ABOUT_US.UNIQUENESS.FEATURES'] || [])">{{ feature | translate }}</li>
+    </ul>
+
+    <h2 class="text-2xl font-bold mb-2">{{ 'ABOUT_US.GET_INVOLVED.TITLE' | translate }}</h2>
+    <p class="text-lg text-white mb-6">{{ 'ABOUT_US.GET_INVOLVED.DESCRIPTION' | translate }}</p>
+    <ul class="list-disc text-lg text-white mb-6 pl-6">
+      <li *ngFor="let opportunity of (translationData['ABOUT_US.GET_INVOLVED.OPPORTUNITIES'] || [])">{{ opportunity | translate }}</li>
+    </ul>
+  </div>
+</section>

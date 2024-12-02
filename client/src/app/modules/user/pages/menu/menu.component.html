@@ -1,0 +1,27 @@
+<div class="bg-white dark:bg-background">
+  <!-- FOOD CATEGORIES TO PICK -->
+  <app-food-category ></app-food-category>
+
+  <!-- Loading spinner -->
+  <div *ngIf="isLoading" class="flex justify-center items-center p-48">
+   <app-loader/>
+ </div>
+
+  <!-- Menu Items Display -->
+  <div  class="container mx-auto px-2 pb-24 pt-4 overflow-auto">
+    <!-- Menu Items Display -->
+    <div *ngIf="!isLoading && displayMenuItems.length > 0"  class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+       <app-food-card *ngFor="let item of displayMenuItems" [item]="item"></app-food-card>
+    </div>
+      <!-- Display message if no items are found -->
+      <div *ngIf="!isLoading && displayMenuItems.length === 0" class="text-center">
+        <h2 class="text-lg font-semibold text-primary h-screen">No items in this category</h2>
+      </div>
+  </div>
+</div>
+  <!-- Submit Review Modal -->
+  <app-submit-review-modal *ngIf="showSubmitReviewModal$ | async"></app-submit-review-modal>
+
+  <!-- Users Review Modal -->
+  <app-user-reviews-modal *ngIf="showUserReviewsModal$ | async"></app-user-reviews-modal>
+

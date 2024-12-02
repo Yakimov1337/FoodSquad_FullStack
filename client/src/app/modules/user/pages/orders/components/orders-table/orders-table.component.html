@@ -1,0 +1,39 @@
+<div
+  class="mt-24 flex-col rounded-lg border-2 border-white/50 bg-background/80 px-8 py-4 shadow-lg shadow-white/50 dark:bg-background/70 sm:flex-row">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex-col items-center">
+      <h3 class="text-md font-bold text-foreground">Last 10 Orders Live Data</h3>
+      <span class="text-xs text-muted-foreground">Updated {{ timeSinceLastUpdate$ | async }} minutes ago</span>
+    </div>
+  </div>
+
+  <div class="relative overflow-x-auto">
+    <div *ngIf="isLoading" class="mx-auto p-48">
+      <app-loader></app-loader>
+    </div>
+    <table *ngIf="!isLoading" class="w-full table-auto">
+      <!--Table head-->
+      <thead class="border-b-2 text-xs uppercase text-muted-foreground">
+        <tr>
+          <th class="py-3 text-left">Order ID</th>
+          <th class="py-3">Status</th>
+          <th class="py-3">Date</th>
+          <th class="py-3">Cost $</th>
+          <th class="py-3">Paid</th>
+          <th class="py-3">Buyer</th>
+        </tr>
+      </thead>
+      <!--end Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr
+          *ngFor="let order of orders"
+          orders-table-item
+          [order]="order"
+          class="border-b border-dashed border-border hover:bg-card"></tr>
+      </tbody>
+      <!--end::Table body-->
+    </table>
+    <p *ngIf="!isLoading && orders.length === 0" class="mx-auto p-12 text-center text-foreground">No items available</p>
+  </div>
+</div>

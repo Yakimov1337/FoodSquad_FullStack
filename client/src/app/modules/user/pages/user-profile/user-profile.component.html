@@ -1,0 +1,122 @@
+<section class="relative overflow-hidden pb-12 min-h-screen">
+  <!-- Background with opacity -->
+  <div
+    class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('./assets/images/background-3.jpg')">
+    <div class="absolute inset-0 bg-black opacity-5"></div>
+  </div>
+  <div class="container relative z-10 mx-auto px-5 pt-32 pb-4" @slideInDown>
+    <div class="flex justify-center">
+      <!-- Personal Information Section -->
+      <div
+        class="w-full max-w-4xl rounded-lg border-2 border-white/50 bg-background/50 p-6 shadow-lg shadow-white/50 dark:bg-background/50">
+        <h3 class="text-dark mb-4 text-center text-lg font-semibold dark:text-white">Personal Information</h3>
+        <form [formGroup]="userForm" (ngSubmit)="updatePersonalInfo()">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <!-- Full Name -->
+            <div>
+              <label for="name" class="text-dark block text-sm font-medium dark:text-white">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                formControlName="name"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                placeholder="Your Full Name" />
+              <div *ngIf="userForm.get('name')?.invalid && userForm.get('name')?.touched" class="text-red-500">
+                Full Name is required.
+              </div>
+              
+            </div>
+
+            <!-- Phone Number -->
+            <div>
+              <label for="phoneNumber" class="text-dark block text-sm font-medium dark:text-white">Phone</label>
+              <input
+                type="text"
+                id="phoneNumber"
+                formControlName="phoneNumber"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                placeholder="+990 3343 7865" />
+              <div *ngIf="userForm.get('phoneNumber')?.errors?.['pattern']" class="text-red-500">
+                Phone number format is not valid.
+              </div>
+            </div>
+
+            <!-- Email Address -->
+            <div>
+              <label for="emailAddress" class="text-dark block text-sm font-medium dark:text-white">Email Address</label>
+              <input
+                type="email"
+                id="email"
+                formControlName="email"
+                class="mt-1 block w-full rounded-md border-gray-300 opacity-50 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                placeholder="example@gmail.com" />
+            </div>
+
+            <!-- User Role -->
+            <div>
+              <label for="role" class="text-dark block text-sm font-medium dark:text-white">Role</label>
+              <input
+                type="text"
+                id="role"
+                formControlName="role"
+                class="mt-1 block w-full rounded-md border-gray-300 opacity-50 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                placeholder="Normal" />
+            </div>
+          </div>
+
+          <!-- Image URL, Image Preview, Image Upload, and Save Button -->
+          <div class="grid grid-cols-1 md:grid-cols-1 gap-6 mt-6">
+            <!-- Image URL -->
+            <div>
+              <label for="imageUrl" class="text-dark block text-sm font-medium dark:text-white">Image URL</label>
+              <input
+                type="text"
+                id="imageUrl"
+                formControlName="imageUrl"
+                class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"
+                placeholder="Image URL" />
+              <div *ngIf="userForm.get('imageUrl')?.invalid && userForm.get('imageUrl')?.touched" class="text-red-500">
+                Image URL is required and must be valid.
+              </div>
+            </div>
+
+            <!-- Image preview -->
+            <div class="mt-4 flex w-full items-center justify-center">
+              <img
+                *ngIf="previewUrl"
+                [src]="previewUrl"
+                width="180"
+                height="180"
+                class="rounded-lg"
+                loading="lazy"
+                style="object-fit: cover; width: 180px; height: 180px"
+                alt="Avatar preview" />
+            </div>
+
+            <!-- File input and label -->
+            <div class="mt-4 flex w-full flex-col items-center justify-center">
+              <label
+                for="dropzone-file"
+                class="flex w-full cursor-pointer flex-col items-center justify-center rounded-lg border-2 border-dashed border-primary bg-gray-50 p-5 hover:bg-gray-100">
+                <p class="text-sm text-gray-500">Click to upload a new photo.</p>
+                <p class="text-xs text-gray-500">(Up to 5mb)</p>
+                <input id="dropzone-file" type="file" class="hidden" (change)="handleFileInput($event)" />
+              </label>
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-6  flex items-end justify-end">
+              <app-button type="submit" full impact="bold" tone="primary" shape="rounded" size="medium">
+                <ng-container *ngIf="!isUpdatingInfo; else spinnerTemplate"> Save </ng-container>
+                <ng-template #spinnerTemplate>
+                  <div class="spinner"></div>
+                </ng-template>
+              </app-button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>

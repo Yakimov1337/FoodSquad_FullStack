@@ -1,0 +1,43 @@
+<!-- Hero Section -->
+<section class="relative flex min-h-screen items-center justify-center">
+  <div @slideInLeft class="container z-10 mx-auto flex-col px-6">
+    <div class="w-full md:w-2/3 lg:w-1/2">
+      <h1 class="mb-4 text-5xl font-bold leading-tight text-white md:text-6xl">
+        {{ 'HERO.TITLE' | translate }}
+        <span class="text-primary">{{ 'HERO.LOCATION' | translate }}</span>
+      </h1>
+      <p class="mb-6 text-lg text-gray-300">
+        {{ 'HERO.DESCRIPTION' | translate }}
+      </p>
+      <button
+        routerLink="/menu"
+        class="rounded bg-primary py-3 px-8 font-bold text-white transition-colors hover:opacity-75">
+        {{ 'HERO.ORDER_NOW' | translate }}
+      </button>
+    </div>
+  </div>
+
+  <!-- Background Image with Opacity -->
+  <div
+    class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+    style="background-image: url('./assets/images/menu_top.jpg'); z-index: 0">
+    <div class="absolute inset-0 bg-black opacity-10 dark:opacity-30"></div>
+    <!-- Phone Image-->
+    <div class="absolute bottom-0 right-0 mx-auto hidden opacity-90 md:flex">
+      <img src="./assets/images/phone.png" alt="Phone" class="mx-auto h-96 w-auto" />
+    </div>
+  </div>
+</section>
+
+<div class="relative -mt-4 flex items-center pb-5">
+  <div class="flex-grow border-t border-primary"></div>
+  <span class="mx-4 flex-shrink text-primary">
+    <svg viewBox="0 0 512 512" class="fill-current text-primary" height="2em" width="2em">
+      <path
+        d="M368 128h.09M479.55 96h-91.06l8.92-35.66 38.32-13.05c8.15-2.77 13-11.43 10.65-19.71a16 16 0 00-20.54-10.73l-47 16a16 16 0 00-10.36 11.27L355.51 96H224.45c-8.61 0-16 6.62-16.43 15.23A16 16 0 00224 128h2.75l1 8.66A8.3 8.3 0 00236 144c39 0 73.66 10.9 100.12 31.52A121.9 121.9 0 01371 218.07a123.4 123.4 0 0110.12 29.51 7.83 7.83 0 003.29 4.88 72 72 0 0126.38 86.43 7.92 7.92 0 00-.15 5.53A96 96 0 01416 376c0 22.34-7.6 43.63-21.4 59.95a80.12 80.12 0 01-28.78 21.67 8 8 0 00-4.21 4.37 108.19 108.19 0 01-17.37 29.86 2.5 2.5 0 001.9 4.11h49.21a48.22 48.22 0 0047.85-44.14L477.4 128h2.6a16 16 0 0016-16.77c-.42-8.61-7.84-15.23-16.45-15.23z" />
+      <path
+        d="M108.69 320a23.87 23.87 0 00-23.87 23.87a17 17 0 007.06 15.51l15.51 15.51a4 4 0 005.66 0L162.34 327a23.87 23.87 0 00-7.06-15.51a23.87 23.87 0 00-15.51-7.06h-69.4a15.93 15.93 0 00-15.76 13.17A65.22 65.22 0 0016 376c0 30.59 21.13 55.51 47.26 56 2.43 15.12 8.31 28.78 17.16 39.47C93.51 487.28 112.54 496 134 496h132c21.46 0 40.49-8.72 53.58-24.55 8.85-10.69 14.73-24.35 17.16-39.47 26.13-.47 47.26-25.39 47.26-56a65.22 65.22 0 00-.9-10.83A15.93 15.93 0 00367.34 352z" />
+    </svg>
+  </span>
+  <div class="flex-grow border-t border-primary"></div>
+</div>
