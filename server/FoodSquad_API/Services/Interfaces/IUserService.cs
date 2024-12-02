@@ -1,4 +1,4 @@
-﻿using FoodSquad_API.Models.DTO;
+﻿using FoodSquad_API.Models.DTO.User;
 
 namespace FoodSquad_API.Services.Interfaces
 {

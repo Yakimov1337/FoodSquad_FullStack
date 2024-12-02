@@ -1,15 +1,15 @@
-﻿using FoodSquad_API.Models.DTO;
+﻿using FoodSquad_API.Models.DTO.Order;
 
 namespace FoodSquad_API.Services.Interfaces
 {
     public interface IOrderService
     {
-        Task<OrderDTO> CreateOrderAsync(OrderDTO orderDTO);
+        Task<OrderDTO> CreateOrderAsync(OrderCreateDTO orderCreateDTO);
         Task<List<OrderDTO>> GetAllOrdersAsync(int page, int size);
         Task<List<OrderDTO>> GetOrdersByUserIdAsync(Guid userId, int page, int size);
         Task<OrderDTO> GetOrderByIdAsync(Guid id);
-        Task<OrderDTO> UpdateOrderAsync(Guid id, OrderDTO orderDTO);
-        Task DeleteOrderAsync(Guid id);
-        Task DeleteOrdersAsync(List<Guid> ids);
+        Task<OrderDTO> UpdateOrderAsync(Guid id, OrderUpdateDTO orderUpdateDTO);
+        Task<string> DeleteOrderAsync(Guid id); 
+        Task<string> DeleteOrdersAsync(List<Guid> ids);
     }
 }
