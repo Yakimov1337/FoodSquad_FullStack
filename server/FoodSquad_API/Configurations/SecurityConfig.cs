@@ -1,6 +1,10 @@
-﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+﻿using FoodSquad_API;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.IdentityModel.Tokens;
+using System.Net;
 using System.Security.Claims;
+using System.Text.Json;
 
 public static class SecurityConfig
 {
@@ -23,25 +27,27 @@ public static class SecurityConfig
                      if (identity != null)
                      {
                          // Map "role" claim to ClaimTypes.Role
-                         var roleClaims = identity.FindAll("role").ToList();
-                         foreach (var roleClaim in roleClaims)
+                         var roleClaim = identity.FindFirst("role");
+                         if (roleClaim != null)
                          {
                              identity.AddClaim(new Claim(ClaimTypes.Role, roleClaim.Value));
                          }
-                     // Map "email" claim to ClaimTypes.Email
-                     var emailClaim = identity.FindFirst("email");
-                     if (emailClaim != null)
-                     {
-                         identity.AddClaim(new Claim(ClaimTypes.Email, emailClaim.Value));
-                     }
+
+                         // Map "email" claim to ClaimTypes.Email
+                         var emailClaim = identity.FindFirst("email"); // Access "email" directly from the JWT
+                         if (emailClaim != null)
+                         {
+                             identity.AddClaim(new Claim(ClaimTypes.Email, emailClaim.Value));
+                         }
                      }
 
                      return Task.CompletedTask;
                  }
              };
+
          });
 
-        return services; 
+        return services;
     }
 
 
