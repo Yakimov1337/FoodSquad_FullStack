@@ -20,6 +20,10 @@ namespace FoodSquad_API.Data
             var connectionString = configuration.GetConnectionString("DefaultConnection");
             optionsBuilder.UseSqlServer(connectionString);
 
+              // Configure SQL Server with query splitting behavior
+            optionsBuilder.UseSqlServer(connectionString, options =>
+                options.UseQuerySplittingBehavior(QuerySplittingBehavior.SplitQuery));
+
             return new MyDbContext(optionsBuilder.Options);
         }
     }
