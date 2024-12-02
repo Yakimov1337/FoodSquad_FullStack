@@ -1,0 +1,96 @@
+<td class="relative py-2 pr-2 ">
+  <div class="flex items-center space-x-4">
+    <input
+      type="checkbox"
+      [checked]="isSelected(menuItem.id)"
+      (change)="handleCheckboxChange($event)"
+      class="h-4 w-4 border-2 border-black/50 dark:border-white/50" />
+    <div class="flex items-center">
+      <img [src]="menuItem.imageUrl" class="mr-2 h-10 w-10 flex-none rounded-full" alt="" />
+      <div class="flex min-w-0 flex-col justify-items-start">
+        <a href="#" class="mb-1 truncate text-sm font-semibold text-foreground">{{ menuItem.title }}</a>
+        <span class="truncate text-xs font-semibold text-muted-foreground/50">
+          {{ truncateDescription(menuItem.description) }}</span
+        >
+      </div>
+    </div>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <span class="text-sm font-semibold text-muted-foreground">{{ menuItem.price | currency }}</span>
+</td>
+<td class="py-2 text-center">
+  <span class="text-sm font-semibold text-muted-foreground">{{ menuItem.salesCount }}</span>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <app-button
+      impact="light"
+      [tone]="menuItem.price * menuItem.salesCount === 0 ? 'danger' : 'success'"
+      shape="rounded"
+      size="medium"
+      >{{ menuItem.price * menuItem.salesCount | currency }}</app-button
+    >
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <app-button impact="light" [tone]="getCategoryTone(menuItem.category)" shape="rounded" size="medium">
+      {{ menuItem.category }}
+    </app-button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <app-button impact="light" [tone]="menuItem.defaultItem ? 'success' : 'danger'" shape="rounded" size="medium">
+      {{ menuItem.defaultItem ? 'Yes' : 'No' }}
+    </app-button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <app-button impact="light" [tone]="getTone(menuItem.averageRating)" shape="rounded" size="medium">
+      {{ menuItem.averageRating }}
+    </app-button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <button
+      (click)="openUserReviewsModal(menuItem.id)"
+      class="text-base font-medium text-gray-900 underline hover:no-underline dark:text-white">
+      {{ menuItem.reviewCount }}
+    </button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="flex justify-end gap-4">
+    <!-- [ngClass]="{ 'button-disabled': currentUser.role === 'Moderator' && menuItem.defaultItem }" -->
+    <app-button
+      *ngIf="currentUser$ | async as currentUser"
+      (click)="handleUpdateButtonClick(currentUser, menuItem)"
+      impact="light"
+      tone="info"
+      shape="rounded"
+      size="medium">
+      <div class="flex items-center justify-center space-x-2">
+        <span>Update</span>
+        <svg-icon src="assets/icons/heroicons/outline/update.svg"></svg-icon>
+      </div>
+    </app-button>
+
+    <app-button
+      *ngIf="currentUser$ | async as currentUser"
+      [ngClass]="{ 'button-disabled': currentUser.role === 'Moderator' }"
+      (click)="currentUser.role === 'Admin' ? openDeleteModal() : null"
+      impact="light"
+      tone="danger"
+      shape="rounded"
+      size="medium">
+      <div class="flex items-center justify-center space-x-2">
+        <span>{{ currentUser.role === 'Admin' ? 'Delete' : 'Not allowed' }}</span>
+        <svg-icon src="assets/icons/heroicons/outline/delete.svg"></svg-icon>
+      </div>
+    </app-button>
+  </div>
+</td>

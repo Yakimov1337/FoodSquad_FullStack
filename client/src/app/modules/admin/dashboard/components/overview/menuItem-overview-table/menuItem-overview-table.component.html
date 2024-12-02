@@ -1,0 +1,51 @@
+<div class="flex-col rounded-lg bg-background px-8 py-8 sm:flex-row">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex-col items-center">
+      <h3 class="text-md font-bold text-foreground">Food menu items Live Data</h3>
+      <span class="text-xs text-muted-foreground">Updated {{ timeSinceLastUpdate$ | async }} minutes ago</span>
+    </div>
+    <button
+    routerLink="/admin/orders"
+    class="flex-none rounded-md bg-primary px-4 py-2.5 text-xs font-semibold text-primary-foreground">
+    Manage Orders
+  </button>
+  </div>
+
+  <div class="relative overflow-x-auto">
+    <div *ngIf="isLoading" class="mx-auto p-48">
+      <app-loader></app-loader>
+    </div>
+    <table *ngIf="!isLoading" class="w-full table-auto">
+      <!--Table head-->
+      <thead class="border-b-2 text-xs uppercase text-muted-foreground">
+        <tr>
+          <th class="py-3 text-left">Title</th>
+          <th class="py-3">Price</th>
+          <th class="py-3">Sales</th>
+          <th class="py-3">Profit</th>
+          <th class="py-3">Category</th>
+          <th class="py-3">Default</th>
+        </tr>
+      </thead>
+      <!--end Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr
+          *ngFor="let menuItem of menuItems"
+          menuItem-overview-table-item
+          [menuItem]="menuItem"
+          class="border-b border-dashed border-border hover:bg-card"></tr>
+      </tbody>
+      <!--end::Table body-->
+    </table>
+    <p *ngIf="!isLoading && menuItems.length === 0" class="mx-auto p-12 text-center text-foreground">
+      No items available
+    </p>
+    <!-- Pagination -->
+    <!-- <app-pagination
+      class="mx-auto"
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChange)="onPageChange($event)"></app-pagination> -->
+  </div>
+</div>

@@ -1,0 +1,48 @@
+<div
+  class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+  (click)="closeModal()" @fadeInOut>
+  <div
+    class="relative w-full max-w-2xl max-h-full overflow-y-auto rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800"
+    (click)="$event.stopPropagation()">
+    <button
+      (click)="closeModal()"
+      class="absolute top-4 right-4 p-1 text-gray-400 hover:text-gray-600 dark:text-gray-200 dark:hover:text-gray-400">
+      <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+      </svg>
+    </button>
+    <div class="text-center mb-6">
+      <h2 class="text-3xl font-semibold text-gray-800 dark:text-white">User Reviews</h2>
+      <p class="text-gray-500 dark:text-gray-400">See what others are saying about this item</p>
+    </div>
+    <div class="overflow-y-auto max-h-96 px-4">
+      <ng-container *ngIf="reviews.length > 0; else noReviews">
+        <article *ngFor="let review of reviews" class="mb-4 bg-gray-50 dark:bg-gray-700 rounded-lg p-4 hover:bg-gray-100 dark:hover:bg-gray-600 transition duration-300 ease-in-out">
+          <div class="flex items-center mb-4">
+            <img [src]="review.imageUrl || 'https://www.pngarts.com/files/11/Avatar-Transparent-Images.png'" class="w-10 h-10 mr-4 rounded-full" alt="User Image">
+            <div class="font-medium dark:text-white">
+              <p>{{ review.userEmail }} <time [attr.datetime]="review.createdOn" class="block text-sm text-gray-500 dark:text-gray-400">Reviewed on {{ review.createdOn | date }}</time></p>
+            </div>
+          </div>
+          <div class="flex items-center mb-1 space-x-1 rtl:space-x-reverse">
+            <ng-container *ngFor="let star of [1, 2, 3, 4, 5]">
+              <svg *ngIf="star <= review.rating" class="w-4 h-4 text-yellow-300" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20" aria-hidden="true">
+                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+              <svg *ngIf="star > review.rating" class="w-4 h-4 text-gray-300 dark:text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 22 20" aria-hidden="true">
+                <path d="M20.924 7.625a1.523 1.523 0 0 0-1.238-1.044l-5.051-.734-2.259-4.577a1.534 1.534 0 0 0-2.752 0L7.365 5.847l-5.051.734A1.535 1.535 0 0 0 1.463 9.2l3.656 3.563-.863 5.031a1.532 1.532 0 0 0 2.226 1.616L11 17.033l4.518 2.375a1.534 1.534 0 0 0 2.226-1.617l-.863-5.03L20.537 9.2a1.523 1.523 0 0 0 .387-1.575Z"/>
+              </svg>
+            </ng-container>
+          </div>
+          <p class="mb-2 text-gray-500 dark:text-gray-400">{{ review.comment }}</p>
+        </article>
+      </ng-container>
+      <ng-template #noReviews>
+        <p class="text-gray-500 dark:text-gray-400">No reviews found.</p>
+      </ng-template>
+    </div>
+    <div class="flex justify-center mt-4">
+      <button (click)="closeModal()" class="px-4 py-2 rounded-lg bg-gray-300 text-gray-700 hover:bg-gray-400 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500">Close</button>
+    </div>
+  </div>
+</div>

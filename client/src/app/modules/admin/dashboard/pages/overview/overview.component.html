@@ -1,0 +1,26 @@
+<div class="mx-auto px-4 py-4 sm:px-8 lg:container">
+  <!-- Header -->
+  <app-menuItem-header></app-menuItem-header>
+  <!-- end Header -->
+
+  <!-- Main Content Loading State -->
+  <ng-container *ngIf="!isLoading; else loading">
+    <div class="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4" @slideInDown>
+      <!-- Dual Card -->
+      <div menuItem-dual-card [menuItem]="menuItems[0]" class="md:col-span-2"></div>
+      <!-- Single Card -->
+      <div menuItem-single-card [menuItem]="menuItems[1]"></div>
+      <!-- More Cards... -->
+      <div menuItem-single-card [menuItem]="menuItems[2]"></div>
+      <div menuItem-chart-card class="md:col-span-2 xl:col-span-1"></div>
+      <div menuItem-overview-table [menuItems]="menuItems" [isLoading]="isLoading" class="md:col-span-2 xl:col-span-3"></div>
+    </div>
+  </ng-container>
+
+  <!-- Loading Template -->
+  <ng-template #loading>
+    <div class="mx-auto p-48">
+      <app-loader></app-loader>
+    </div>
+  </ng-template>
+</div>

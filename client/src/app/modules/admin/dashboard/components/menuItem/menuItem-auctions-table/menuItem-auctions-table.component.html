@@ -1,0 +1,114 @@
+<div class="flex-col rounded-lg bg-background px-8 py-8 sm:flex-row">
+  <div class="mb-4 flex items-center justify-between">
+    <div class="flex-col items-center">
+      <h3 class="text-md font-bold text-foreground">Food menu items Live Data</h3>
+      <span class="text-xs text-muted-foreground">Updated {{ timeSinceLastUpdate$ | async }} minutes ago</span>
+    </div>
+    <div class="flex flex-col gap-4 mt-4 sm:mt-0 sm:flex-row sm:items-center">
+      <!-- Select All Button -->
+      <app-button impact="light" tone="success" shape="rounded" size="medium" (click)="toggleAllSelection()">
+        <div class="flex text-center justify-center space-x-2">
+          <span class="">{{ isAllSelected() ? 'Deselect All' : 'Select All' }}</span>
+        </div>
+      </app-button>
+
+      <!-- Delete All Button -->
+      <app-button impact="light" tone="danger" shape="rounded" size="medium" (click)="deleteAllItems()">
+        <div class="flex items-center justify-center space-x-2">
+          <span class="ml-2">Delete All</span>
+          <svg-icon class="hidden md:flex" src="assets/icons/heroicons/outline/delete.svg"></svg-icon>
+        </div>
+      </app-button>
+
+      <!-- Create Button -->
+      <app-button
+        (click)="openCreateModal()"
+        impact="light"
+        tone="warning"
+        shape="rounded"
+        size="medium"
+        class="text-white">
+        <div class="flex items-center justify-center space-x-2">
+          <span>Create</span>
+          <svg-icon src="assets/icons/heroicons/outline/edit.svg"></svg-icon>
+        </div>
+      </app-button>
+    </div>
+  </div>
+
+  <div class="mb-2 flex flex-col gap-4 md:flex-row md:gap-4">
+    <!-- Category Filter Dropdown -->
+    <select [(ngModel)]="categoryFilter" (ngModelChange)="applyFiltersAndSorting()" class="border-2 border-primary/50">
+      <option value="">All Categories</option>
+      <option [value]="'PIZZA'">Pizza</option>
+      <option [value]="'BURGER'">Burger</option>
+      <option [value]="'PASTA'">Pasta</option>
+      <option [value]="'SUSHI'">Sushi</option>
+      <option [value]="'SALAD'">Salad</option>
+      <option [value]="'TACOS'">Tacos</option>
+      <option [value]="'DESSERT'">Dessert</option>
+      <option [value]="'OTHER'">Other</option>
+    </select>
+
+    <!-- Price Sort Dropdown -->
+    <select
+      [(ngModel)]="priceSortDirection"
+      (ngModelChange)="applyFiltersAndSorting()"
+      class="border-2 border-primary/50">
+      <option value="">Sort by price</option>
+      <option value="asc">Ascending</option>
+      <option value="desc">Descending</option>
+    </select>
+
+    <!-- Default Filter Dropdown -->
+    <select [(ngModel)]="defaultFilter" (ngModelChange)="applyFiltersAndSorting()" class="border-2 border-primary/50">
+      <option value="all">All (default)</option>
+      <option value="yes">Default</option>
+      <option value="no">Non-default</option>
+    </select>
+  </div>
+  <div class="relative overflow-x-auto">
+    <div *ngIf="isLoading" class="mx-auto p-64">
+      <app-loader></app-loader>
+    </div>
+    <table *ngIf="!isLoading" class="w-full table-auto">
+      <!--Table head-->
+      <thead class="border-b-2 text-xs uppercase text-muted-foreground">
+        <tr>
+          <th class="py-3 text-left">Title</th>
+          <th class="py-3">Price</th>
+          <th class="py-3">Sales</th>
+          <th class="py-3">Profit</th>
+          <th class="py-3">Category</th>
+          <th class="py-3">Default</th>
+          <th class="py-3">Rating</th>
+          <th class="py-3">Reviews</th>
+          <th class="py-3 text-end">Actions</th>
+        </tr>
+      </thead>
+      <!--end Table head-->
+      <!--Table body-->
+      <tbody>
+        <tr
+          *ngFor="let item of menuItems; trackBy: trackById"
+          menuItem-auctions-table-item
+          [menuItem]="item"
+          [selectedItemIds]="getSelectedItemIds()"
+          [onToggleSelection]="onToggleSelection.bind(this)"
+          [isSelected]="isSelected.bind(this)">
+          >
+        </tr>
+      </tbody>
+      <!--end::Table body-->
+    </table>
+    <p *ngIf="!isLoading && menuItems.length === 0" class="mx-auto p-12 text-center text-foreground">
+      No items available
+    </p>
+    <!-- Pagination -->
+    <app-pagination
+      class="mx-auto"
+      [currentPage]="currentPage"
+      [totalPages]="totalPages"
+      (pageChange)="onPageChange($event)"></app-pagination>
+  </div>
+</div>

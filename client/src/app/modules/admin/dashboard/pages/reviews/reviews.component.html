@@ -1,0 +1,7 @@
+<div class="mx-auto px-4 py-4 sm:px-8 lg:container" @slideInRight>
+  <!-- Reviews Table -->
+  <div reviews-table></div>
+  <div *ngIf="showCreateReviewModal$ | async" review-create-modal @fadeInOut></div>
+  <div *ngIf="showUpdateReviewModal$ | async" review-update-modal @fadeInOut></div>
+  <div *ngIf="showDeleteReviewModal$ | async" review-delete-modal @fadeInOut></div>
+</div>

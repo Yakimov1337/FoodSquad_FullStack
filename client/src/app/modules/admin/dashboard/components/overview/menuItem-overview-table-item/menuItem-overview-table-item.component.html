@@ -1,0 +1,39 @@
+<td class="py-2 pr-2">
+  <div class="flex items-center">
+    <img [src]="menuItem.imageUrl" class="mr-2 h-10 w-10 flex-none rounded-full" alt="" />
+    <div class="flex min-w-0 flex-col justify-items-start">
+      <a href="#" class="mb-1 truncate text-sm font-semibold text-foreground">{{ menuItem.title }}</a>
+      <span class="truncate text-xs font-semibold text-muted-foreground/50">{{
+        truncateDescription(menuItem.description)
+      }}</span>
+    </div>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <span class="text-sm font-semibold text-muted-foreground">{{ menuItem.price | currency }}</span>
+</td>
+<td class="py-2 text-center">
+  <span class="text-sm font-semibold text-muted-foreground">{{ menuItem.salesCount }}</span>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <app-button impact="light" tone="success" shape="rounded" size="medium">{{
+      menuItem.price * menuItem.salesCount | currency
+    }}</app-button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div class="inline-block">
+    <app-button impact="light" tone="info" shape="rounded" size="medium">{{ menuItem.category }}</app-button>
+  </div>
+</td>
+<td class="py-2 text-center">
+  <div
+    class="inline-block min-w-[64px] rounded-lg opacity-50"
+    [ngClass]="{
+      'bg-green-500/70 ': menuItem.defaultItem,
+      'bg-red-500/70 ': !menuItem.defaultItem
+    }">
+    <span class="text-sm font-semibold text-white"> {{ menuItem.defaultItem ? 'Yes' : 'No' }}</span>
+  </div>
+</td>

@@ -1,0 +1,7 @@
+<div class="mx-auto px-4 py-4 sm:px-8 lg:container" @slideInRight>
+  <!-- users Table -->
+  <div users-table></div>
+  <div *ngIf="showCreateUserModal$ | async" user-create-modal @fadeInOut></div>
+  <div *ngIf="showUpdateUserModal$ | async" user-update-modal @fadeInOut></div>
+  <div *ngIf="showDeleteUserModal$ | async" user-delete-modal @fadeInOut></div>
+</div>

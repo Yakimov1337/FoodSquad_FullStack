@@ -1,0 +1,9 @@
+<div class="mx-auto px-4 py-4 sm:px-8 lg:container" @slideInRight>
+  <!-- Auctions Table -->
+  <div menuItem-auctions-table ></div>
+  <div *ngIf="showCreateMenuItemModal$ | async" menuItem-create-modal @fadeInOut></div>
+  <div *ngIf="showUpdateMenuItemModal$ | async" menuItem-update-modal @fadeInOut></div>
+  <div *ngIf="showDeleteMenuItemModal$ | async" menuItem-delete-modal @fadeInOut></div>
+  <div *ngIf="showUserReviewsModal$ | async" menuItem-reviews-modal @fadeInOut></div>
+</div>
+

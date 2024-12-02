@@ -1,0 +1,7 @@
+<div class="mx-auto px-4 py-4 sm:px-8 lg:container" @slideInRight>
+  <!-- Orders Table -->
+  <div orders-table></div>
+  <div *ngIf="showCreateOrderModal$ | async" order-create-modal @fadeInOut></div>
+  <div *ngIf="showUpdateOrderModal$ | async" order-update-modal @fadeInOut></div>
+  <div *ngIf="showDeleteOrderModal$ | async" order-delete-modal @fadeInOut></div>
+</div>
