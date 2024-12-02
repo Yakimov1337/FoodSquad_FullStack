@@ -15,5 +15,6 @@ namespace FoodSquad_API.Repositories.Interfaces
         Task AddAsync(Review review);
         Task UpdateAsync(Review review);
         Task DeleteAsync(Review review);
+        Task DeleteRangeAsync(IEnumerable<Review> reviews);
     }
 }

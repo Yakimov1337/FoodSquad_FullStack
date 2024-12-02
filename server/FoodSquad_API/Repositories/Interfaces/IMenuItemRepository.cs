@@ -8,6 +8,7 @@ namespace FoodSquad_API.Repositories.Interfaces
     public interface IMenuItemRepository
     {
         Task<MenuItem> GetByIdAsync(long id);
+        Task<IEnumerable<MenuItem>> GetByUserIdAsync(Guid userId);
         Task AddAsync(MenuItem menuItem);
         Task UpdateAsync(MenuItem menuItem);
         Task DeleteAsync(MenuItem menuItem);
