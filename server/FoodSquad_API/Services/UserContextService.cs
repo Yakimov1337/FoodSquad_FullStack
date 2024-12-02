@@ -35,7 +35,17 @@ namespace FoodSquad_API.Services
 
         public async Task CheckOwnershipAsync(User resourceOwner)
         {
+            if (resourceOwner == null)
+            {
+                throw new ArgumentNullException(nameof(resourceOwner), "The resource owner is null.");
+            }
+
             var currentUser = await GetCurrentUserAsync();
+
+            // Log debug information to verify the current user and resource owner
+            Console.WriteLine($"Current User: Id={currentUser.Id}, Email={currentUser.Email}, Role={currentUser.Role}");
+            Console.WriteLine($"Resource Owner: Id={resourceOwner.Id}, Email={resourceOwner.Email}, Role={resourceOwner.Role}");
+
 
             if (currentUser.Id != resourceOwner.Id &&
                 currentUser.Role != UserRole.Admin &&
@@ -44,5 +54,6 @@ namespace FoodSquad_API.Services
                 throw new UnauthorizedAccessException("Access denied.");
             }
         }
+
     }
 }
