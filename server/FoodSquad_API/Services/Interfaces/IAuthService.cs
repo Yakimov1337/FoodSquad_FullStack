@@ -1,5 +1,6 @@
-﻿using FoodSquad_API.Models.DTO;
+﻿using FoodSquad_API.Models.DTO.User;
 using FoodSquad_API.Models.Entity;
+using System.Security.Claims;
 using System.Threading.Tasks;
 
 namespace FoodSquad_API.Services.Interfaces
@@ -8,7 +9,7 @@ namespace FoodSquad_API.Services.Interfaces
     {
         Task<UserResponseDTO> RegisterUserAsync(UserRegistrationDTO userRegistrationDTO);
         Task<UserResponseDTO> LoginUserAsync(UserLoginDTO userLoginDTO);
-        Task<User> GetUserByEmailAsync(string email);
+        Task<UserResponseDTO> GetCurrentUserAsync(ClaimsPrincipal userPrincipal);
         Task<User> LoadUserEntityByUsernameAsync(string email);
     }
 }
