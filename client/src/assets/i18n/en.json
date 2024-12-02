@@ -1,0 +1,171 @@
+{
+  "HERO": {
+    "TITLE": "The Fastest Food Delivery in",
+    "LOCATION": "Bulgaria",
+    "DESCRIPTION": "Enjoy the best dishes from the comfort of your home. Satisfy your cravings with our wide selection of mouthwatering cuisines, delivered straight to your doorstep. Experience convenience and flavor like never before!",
+    "ORDER_NOW": "Order Now"
+  },
+  "HEADER": {
+    "HOME": "Home",
+    "MENU": "Menu",
+    "ABOUT_US": "About us",
+    "CONTACT_US": "Contact us",
+    "ADMIN_DASHBOARD": "Admin Dashboard",
+    "SERVICES": "Services"
+  },
+  "MENU": {
+    "MENU": "Menu",
+    "TITLE": "Our Delicious",
+    "SUB_TITLE": "Explore our wide variety of dishes. There's something for everyone!"
+  },
+  "PLANS": {
+    "TITLE": "Our Plans",
+    "DESCRIPTION": "Choose the perfect plan for your business needs.",
+    "BASIC_BITE": {
+      "NAME": "Basic Bite",
+      "DESCRIPTION": "Ideal for small restaurants or startups looking to expand their delivery options.",
+      "PRICE": "$19",
+      "FREQUENCY": "/mo",
+      "FEATURES": ["Up to 50 delivery orders", "Basic analytics", "Community support"],
+      "ACTION_TEXT": "Get Started"
+    },
+    "GOURMET_GROWTH": {
+      "NAME": "Gourmet Growth",
+      "DESCRIPTION": "Perfect for growing businesses aiming to increase their market presence.",
+      "PRICE": "$39",
+      "FREQUENCY": "/mo",
+      "FEATURES": ["Unlimited delivery orders", "Advanced analytics", "Priority support"],
+      "ACTION_TEXT": "Get Started"
+    },
+    "EPICUREAN_ENTERPRISE": {
+      "NAME": "Enterprise",
+      "DESCRIPTION": "Large-scale solutions for established restaurants with custom needs.",
+      "PRICE": "$399",
+      "FREQUENCY": "/mo",
+      "FEATURES": ["Custom order volume", "Personalized menu consulting", "Dedicated account manager"],
+      "ACTION_TEXT": "Contact Sales"
+    }
+  },
+  "SUBSCRIBE": {
+    "TITLE": "Sign up for our <span class='text-primary'>newsletter</span>",
+    "DESCRIPTION": "Stay up to date with the roadmap progress, announcements, and exclusive discounts. Feel free to sign up with your email.",
+    "PRIVACY_POLICY": "We care about the protection of your data. <a href='#' class='text-primary hover:underline'>Read our Privacy Policy.</a>",
+    "EMAIL_PLACEHOLDER": "Enter your email",
+    "SUBSCRIBE_BUTTON": "Subscribe"
+  },
+  "STATS": {
+    "HAPPY_CLIENTS": "Happy Clients",
+    "ORDERS_DELIVERED": "Orders Delivered",
+    "TIME_SAVED": "Hours Saved"
+  },
+  "FOOTER": {
+    "ABOUT": "About",
+    "MENU": "Menu",
+    "PROFILE": "Profile",
+    "ORDERS": "Orders",
+    "CONTACT": "Contact",
+    "COPYRIGHT": "© 2024 <a routerLink='/' class='hover:underline'>Food Squad™</a>. All Rights Reserved."
+  },
+  "PROFILE_MENU": {
+    "PROFILE": "My Profile",
+    "ORDERS": "My Orders",
+    "REVIEWS": "My Reviews",
+    "LOGOUT": "Log out"
+  },
+  "COLORS": {
+    "base": "Base",
+    "yellow": "Yellow",
+    "green": "Green",
+    "blue": "Blue",
+    "orange": "Orange",
+    "red": "Red",
+    "violet": "Violet"
+  },
+  "MODE": {
+    "light": "Light",
+    "dark": "Dark"
+  },
+  "SERVICE": {
+    "FIRST_ROW": {
+      "TITLE": "Best Service to fulfill your",
+      "HIGHLIGHT": "expectations",
+      "DESCRIPTION": "It’s not just about bringing you good food from your favourite restaurants. It’s also about making a connection.",
+      "LINK_TEXT": "Read More"
+    },
+    "SECOND_ROW": {
+      "TITLE": "Dedicated to Delight",
+      "HIGHLIGHT": "YOU",
+      "DESCRIPTION": "Customer delight is the process of surpassing customers' expectations to increase satisfaction, loyalty, and advocacy.",
+      "LINK_TEXT": "Read More"
+    }
+  },
+  "ABOUT_US": {
+    "TITLE": "About Food Squad: A Student Project",
+    "DESCRIPTION": "Welcome to Food Squad, an innovative food ordering platform developed as a student project. I, George, am the sole creator and developer behind Food Squad, driven by a passion for technology and a love for good food. Food Squad isn't just an app; it's a culmination of my dedication to learning and exploring new avenues in the digital world.",
+    "MISSION": {
+      "TITLE": "Our Mission",
+      "DESCRIPTION": "Food Squad was born out of a desire to explore the intersection of technology and gastronomy, without the aim of generating profit. My mission with Food Squad is simple: to create a convenient and enjoyable food ordering experience for users, while also gaining valuable skills and knowledge as a student."
+    },
+    "VISION": {
+      "TITLE": "Our Vision",
+      "DESCRIPTION": "While many food apps focus on profit and scalability, Food Squad's vision is unique. I envision Food Squad as a platform that prioritizes learning and experimentation, providing users with a glimpse into the capabilities of student-driven projects. Through Food Squad, I aim to showcase the creativity and innovation that students can bring to the table."
+    },
+    "UNIQUENESS": {
+      "TITLE": "What Sets Food Squad Apart",
+      "FEATURES": [
+        "Educational Endeavor: Food Squad serves as a learning platform for me as a student, allowing me to gain hands-on experience in app development, user interface design, and project management.",
+        "Community Engagement: While Food Squad may not aim for profit, it fosters community engagement and collaboration. I welcome feedback and suggestions from users, fellow students, and anyone interested in contributing to the project's growth.",
+        "Transparent Approach: Food Squad operates with transparency and honesty. As a student project, I'm upfront about my goals and limitations, providing users with a unique insight into the development process.",
+        "Continuous Improvement: As I continue to develop Food Squad, I'm committed to continuous improvement. Every update and enhancement is driven by a desire to learn and refine my skills as a developer."
+      ]
+    },
+    "GET_INVOLVED": {
+      "TITLE": "Get Involved",
+      "DESCRIPTION": "Interested in supporting Food Squad? There are several ways to get involved:",
+      "OPPORTUNITIES": [
+        "Provide Feedback: Your feedback is invaluable in shaping the future of Food Squad. Whether you have suggestions for improvement or feature requests, I'd love to hear from you.",
+        "Spread the Word: Help spread the word about Food Squad within your community and among fellow students. The more users we have, the more opportunities there are for learning and collaboration.",
+        "Contribute: Are you a fellow student with a passion for technology? Consider contributing to Food Squad! Whether you're a developer, designer, or marketing enthusiast, there's a place for you on the Food Squad team."
+      ]
+    }
+  },
+  "CONTACT_US": {
+    "TITLE": "Contact Us",
+    "DESCRIPTION": "Got a technical issue? Want to send feedback about a beta feature? Need details about our Business plan? Let us know.",
+    "FORM": {
+      "EMAIL_LABEL": "Your email",
+      "EMAIL_PLACEHOLDER": "name@flowbite.com",
+      "SUBJECT_LABEL": "Subject",
+      "SUBJECT_PLACEHOLDER": "Let us know how we can help you",
+      "MESSAGE_LABEL": "Your message",
+      "MESSAGE_PLACEHOLDER": "Leave a comment...",
+      "SUBMIT_BUTTON": "Send message"
+    },
+    "ADDRESS": {
+      "TITLE": "Address",
+      "TEXT": "Dupnitsa, Bulgaria 2600"
+    },
+    "CONTACT_INFO": {
+      "TECH_SUPPORT": {
+        "TITLE": "Technical support",
+        "EMAIL": "support",
+        "PHONE": "+1 234-567-89"
+      },
+      "SALES": {
+        "TITLE": "Sales questions",
+        "EMAIL": "sales",
+        "PHONE": "+1 234-567-89"
+      },
+      "PRESS": {
+        "TITLE": "Press",
+        "EMAIL": "press",
+        "PHONE": "+1 234-567-89"
+      },
+      "BUG_REPORT": {
+        "TITLE": "Bug report",
+        "EMAIL": "bugs",
+        "PHONE": "+1 234-567-89"
+      }
+    }
+  }
+}

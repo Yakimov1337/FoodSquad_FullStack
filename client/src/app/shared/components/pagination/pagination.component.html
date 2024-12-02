@@ -1,0 +1,70 @@
+<nav aria-label="Page navigation" class="flex justify-center bg-background py-4 mt-4">
+  <ul class="flex items-center space-x-2">
+    <!-- First Page Button -->
+    <li *ngIf="currentPage > 3">
+      <a
+        [routerLink]="[]"
+        (click)="onPageChange(1)"
+        class="rounded bg-primary px-3 py-2 text-white hover:bg-opacity-80"
+      >
+        First
+      </a>
+    </li>
+
+    <!-- Previous Page Button -->
+    <li>
+      <a
+        [routerLink]="[]"
+        (click)="currentPage > 1 && onPageChange(currentPage - 1)"
+        [ngClass]="{
+          'rounded bg-primary px-4 py-2 text-white hover:bg-opacity-80': true,
+          'opacity-50 cursor-not-allowed': currentPage === 1
+        }"
+      >
+        Previous
+      </a>
+    </li>
+
+    <!-- Page Numbers -->
+    <li *ngFor="let page of getPageNumbers()">
+      <a
+        *ngIf="page !== -1"
+        [routerLink]="[]"
+        (click)="currentPage !== page ? onPageChange(page) : null"
+        class="rounded px-3 py-2 bg-primary text-white"
+        [ngClass]="{
+          'opacity-30 cursor-not-allowed': currentPage === page,
+          'hover:bg-opacity-50': currentPage !== page
+        }"
+      >
+        {{ page }}
+      </a>
+      <span *ngIf="page === -1" class="px-3 py-2 dark:text-white">...</span>
+    </li>
+
+    <!-- Next Page Button -->
+    <li>
+      <a
+        [routerLink]="[]"
+        (click)="currentPage < totalPages && onPageChange(currentPage + 1)"
+        [ngClass]="{
+          'rounded bg-primary px-4 py-2 text-white hover:bg-opacity-80': true,
+          'opacity-50 cursor-not-allowed': currentPage === totalPages
+        }"
+      >
+        Next
+      </a>
+    </li>
+
+    <!-- Last Page Button -->
+    <li *ngIf="currentPage < totalPages - 2">
+      <a
+        [routerLink]="[]"
+        (click)="onPageChange(totalPages)"
+        class="rounded bg-primary px-3 py-2 text-white hover:bg-opacity-80"
+      >
+        Last
+      </a>
+    </li>
+  </ul>
+</nav>
