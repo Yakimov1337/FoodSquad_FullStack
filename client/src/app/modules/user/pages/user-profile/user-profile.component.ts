@@ -110,7 +110,7 @@ export class UserProfileComponent implements OnInit {
       const updateUserDTO: UserUpdate = {
         name: formValues.name,
         phoneNumber: formValues.phoneNumber,
-        role: this.currentUser!.role.toUpperCase(),
+        role: this.currentUser!.role,
         imageUrl: formValues.imageUrl,
       };
 
