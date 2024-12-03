@@ -7,6 +7,28 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
 
 - **Deployment**: [Vercel](https://food-app-full-stack.vercel.app/) 
 
+## 📦 Installation and Setup
+
+### Frontend Setup
+
+1. **Clone the Repository**
+    ```bash
+    git clone https://github.com/Yakimov1337/FoodApp_FullStack/tree/main/client
+    cd fullstack-food-squad/client
+    ```
+
+2. **Install Dependencies**
+    ```bash
+    npm install
+    ```
+
+3. **Update `environment.local.ts`** with your API endpoint and Stripe key.
+
+4. **Start the Frontend**
+    ```bash
+    ng serve
+    ```
+
 ## 🚀 Key Features
 
 - **🍏 Fully Responsive Design**: Optimized for seamless use on all devices.
@@ -84,27 +106,6 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
 | Home, Contact, About, etc.    |        ❌       |            ✔️           |                 ✔️               |
 | Admin Dashboard               |        ❌       |            ❌           |                 ✔️               |
 
-## 📦 Installation and Setup
-
-### Frontend Setup
-
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/Yakimov1337/FoodApp_FullStack/tree/main/client
-    cd fullstack-food-squad/client
-    ```
-
-2. **Install Dependencies**
-    ```bash
-    npm install
-    ```
-
-3. **Update `environment.local.ts`** with your API endpoint and Stripe key.
-
-4. **Start the Frontend**
-    ```bash
-    ng serve
-    ```
 
 
 ## Backend Setup 🛠️
