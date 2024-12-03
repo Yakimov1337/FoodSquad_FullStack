@@ -5,6 +5,10 @@ VisualStudioVersion = 17.11.35327.3
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSquad_API", "FoodSquad_API\FoodSquad_API.csproj", "{80B37BAF-901B-4E39-BF3E-DC9E0CA8CD5E}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{73C10BB2-A887-44B3-A963-7FADB891FC4F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FoodSquad_API.Tests", "Tests\FoodSquad_API.Tests\FoodSquad_API.Tests.csproj", "{4675EE54-826C-4214-814D-B784C5282434}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +19,18 @@ Global
 		{80B37BAF-901B-4E39-BF3E-DC9E0CA8CD5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80B37BAF-901B-4E39-BF3E-DC9E0CA8CD5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{80B37BAF-901B-4E39-BF3E-DC9E0CA8CD5E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4675EE54-826C-4214-814D-B784C5282434}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4675EE54-826C-4214-814D-B784C5282434}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4675EE54-826C-4214-814D-B784C5282434}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4675EE54-826C-4214-814D-B784C5282434}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8C8EF1BE-EEDA-443D-832A-E699C5386BD9}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{4675EE54-826C-4214-814D-B784C5282434} = {73C10BB2-A887-44B3-A963-7FADB891FC4F}
 	EndGlobalSection
 EndGlobal
