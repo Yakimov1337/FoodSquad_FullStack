@@ -38,11 +38,11 @@ public class JwtRequestFilter : IMiddleware
                 var identity = new ClaimsIdentity(claims, JwtBearerDefaults.AuthenticationScheme);
                 context.User = new ClaimsPrincipal(identity);
 
-                Console.WriteLine("[DEBUG] Claims added to HttpContext.User:");
-                foreach (var claim in claims)
-                {
-                    Console.WriteLine($"Type: {claim.Type}, Value: {claim.Value}");
-                }
+                //Console.WriteLine("[DEBUG] Claims added to HttpContext.User:");
+                //foreach (var claim in claims)
+                //{
+                //    Console.WriteLine($"Type: {claim.Type}, Value: {claim.Value}");
+                //}
             }
             catch
             {

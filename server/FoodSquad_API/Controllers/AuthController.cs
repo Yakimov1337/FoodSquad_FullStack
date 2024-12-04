@@ -146,12 +146,6 @@ namespace FoodSquad_API.Controllers
         [SwaggerResponse(401, "Unauthorized or invalid token.")]
         public async Task<IActionResult> GetCurrentUser()
         {
-            Console.WriteLine("User Claims:");
-            foreach (var claim in User.Claims)
-            {
-                Console.WriteLine($"Type: {claim.Type}, Value: {claim.Value}");
-            }
-
             var email = User.Claims.FirstOrDefault(c => c.Type == "email")?.Value;
             if (string.IsNullOrEmpty(email))
             {
@@ -162,10 +156,5 @@ namespace FoodSquad_API.Controllers
             var user = await _authService.LoadUserEntityByUsernameAsync(email);
             return Ok(new UserResponseDTO(user));
         }
-
-
-
-
-
     }
 }
