@@ -1,12 +1,4 @@
 
-# 🍔 Food Squad 🍽️
-
-Welcome to **Food Squad**, an advanced web application designed to enhance your dining experience. **Food Squad** integrates Angular 17 on the frontend with Java Spring Boot 3 for backend services, offering a robust and scalable solution for food enthusiasts. For more detailed information, please check client/server README file.
-
-## 🌍 Live Deployment
-
-- **Deployment**: [Vercel](https://food-app-full-stack.vercel.app/) 
-
 ## 📦 Installation and Setup
 
 ### Frontend Setup
@@ -28,6 +20,16 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
     ```bash
     ng serve
     ```
+
+
+# 🍔 Food Squad 🍽️
+
+Welcome to **Food Squad**, an advanced web application designed to enhance your dining experience. **Food Squad** integrates Angular 17 on the frontend with .NET 8 for backend services, offering a robust and scalable solution for food enthusiasts. For more detailed information, please check client/server README file.
+
+## 🌍 Live Deployment
+
+- **Deployment**: [Vercel](https://food-app-full-stack.vercel.app/) 
+
 
 ## 🚀 Key Features
 
