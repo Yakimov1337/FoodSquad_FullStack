@@ -216,12 +216,24 @@ void InitializeDatabase(WebApplication app)
     try
     {
         Console.WriteLine("Ensuring database creation...");
-        dbContext.Database.Migrate(); // Automatically create or update the database schema
-        Console.WriteLine("Database ensured and migrations applied.");
+        dbContext.Database.EnsureCreated(); // Creates database if not existing
+
+        var pendingMigrations = dbContext.Database.GetPendingMigrations().ToList();
+
+        if (pendingMigrations.Any())
+        {
+            Console.WriteLine("Applying pending migrations...");
+            dbContext.Database.Migrate();  // Applies migrations if there are any
+            Console.WriteLine("Migrations applied.");
+        }
+        else
+        {
+            Console.WriteLine("No pending migrations found.");
+        }
 
         Console.WriteLine("Seeding the database...");
         var seeder = scope.ServiceProvider.GetRequiredService<DatabaseSeeder>();
-        seeder.SeedDatabase(); // Seed the database
+        seeder.SeedDatabase(); // Custom seeding logic
         Console.WriteLine("Database seeding completed.");
     }
     catch (Exception ex)
