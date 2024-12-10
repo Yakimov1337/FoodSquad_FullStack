@@ -1,26 +1,34 @@
 
-## 📦 Installation and Setup
+# 📦 Installation and Setup
 
-### Frontend Setup
+## Frontend Setup
 
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/Yakimov1337/FoodApp_FullStack/tree/main/client
-    cd fullstack-food-squad/client
-    ```
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/Yakimov1337/FoodApp_FullStack/tree/main/client
+   cd fullstack-food-squad/client
+   ```
 
-2. **Install Dependencies**
-    ```bash
-    npm install
-    ```
+2. **Install Dependencies**  
+   ```bash
+   npm install
+   ```
 
-3. **Update `environment.local.ts`** with your API endpoint and Stripe key.
+3. **Ensure Angular CLI is Installed Globally**  
+   If you don't have Angular CLI installed globally, run:  
+   ```bash
+   npm install -g @angular/cli
+   ```
 
-4. **Start the Frontend**
-    ```bash
-    ng serve
-    ```
+4. **Update `environment.local.ts`**  
+   Set your API endpoint and Stripe key accordingly.
 
+5. **Start the Frontend**  
+   ```bash
+   ng serve
+   ```
+---
+By following these steps, you should have the frontend running smoothly.
 
 # 🍔 Food Squad 🍽️
 
