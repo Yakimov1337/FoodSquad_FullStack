@@ -86,24 +86,32 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
 
 ## 📦 Installation and Setup
 
-### Frontend Setup
+# Frontend Setup
 
-1. **Clone the Repository**
-    ```bash
-    git clone https://github.com/Yakimov1337/FoodApp_FullStack/tree/main/client
-    cd fullstack-food-squad/client
-    ```
+1. **Clone the Repository**  
+   ```bash
+   git clone https://github.com/Yakimov1337/FoodApp_FullStack/tree/main/client
+   cd fullstack-food-squad/client
+   ```
 
-2. **Install Dependencies**
-    ```bash
-    npm install
-    ```
+2. **Install Dependencies**  
+   ```bash
+   npm install
+   ```
 
-3. **Update `environment.local.ts`** with your API endpoint and Stripe key.
+3. **Ensure Angular CLI is Installed Globally**  
+   If you don't have Angular CLI installed globally, run:  
+   ```bash
+   npm install -g @angular/cli
+   ```
 
-4. **Start the Frontend**
-    ```bash
-    ng serve
+4. **Update `environment.local.ts`**  
+   Set your API endpoint and Stripe key accordingly.
+
+5. **Start the Frontend**  
+   ```bash
+   ng serve
+   ```e
     ```
 
 
@@ -120,7 +128,7 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
 
 ### 2. **Configure the Application**
 
-   - Open the `appsettings.json` file in the `FoodSquad_API` project.
+   - Open the `appsettings.json` and `appsettings.development` file in the `FoodSquad_API` project.
    - Update the `DefaultConnection` string with your database server details.
 
    Example:
