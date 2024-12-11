@@ -36,7 +36,7 @@ Welcome to **Food Squad**, an advanced web application designed to enhance your 
 
 ## 🌍 Live Deployment
 
-- **Deployment**: [Vercel](https://food-app-full-stack.vercel.app/) 
+- **Deployment**: [Vercel](https://food-squad-full-stack.vercel.app/
 
 
 ## 🚀 Key Features
