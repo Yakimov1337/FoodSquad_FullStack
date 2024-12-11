@@ -24,7 +24,7 @@ namespace FoodSquad_API.Data
             {
                 entity.Property(e => e.Role)
                       .HasConversion(new EnumToStringConverter<UserRole>())
-                      .HasColumnType("nvarchar(50)"); // Adjust the column type as needed
+                      .HasColumnType("nvarchar(50)");
             });
 
             // Users -> Reviews
