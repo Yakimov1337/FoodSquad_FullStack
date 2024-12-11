@@ -110,7 +110,7 @@ void ConfigureCors(IServiceCollection services)
         options.AddPolicy("CorsPolicy", policy =>
         {
             policy.WithOrigins("https://localhost:7238", "http://localhost:4200",
-                "https://food-squad-full-stack.vercel.app",) // Add allowed origin (Swagger,frontend and deployed version)
+                "https://food-squad-full-stack.vercel.app") // Add allowed origin (Swagger,frontend and deployed version)
                   .AllowAnyHeader() // Allow all headers
                   .AllowAnyMethod() // Allow all HTTP methods (GET, POST, etc.)
                   .AllowCredentials(); // Allow cookies and credentials
