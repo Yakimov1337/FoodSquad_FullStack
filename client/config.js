@@ -26,6 +26,6 @@ fs.writeFile(targetPath, envConfigFile, 'utf8', (err) => {
   if (err) {
     return console.log(err);
   }
-
+  console.log(`Api url: ${process.env.apiUrl}`);
   console.log(`Environment variables were successfully written to ${targetPath}`);
 });
