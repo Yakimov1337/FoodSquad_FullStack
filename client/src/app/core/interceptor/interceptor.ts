@@ -24,7 +24,13 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       catchError((error: HttpErrorResponse) => {
-        console.error('HTTP error intercepted:', error);
+        if (error.status === 0) {
+          // Show toastr when server is unreachable
+          this.toastr.error(
+            'The server is currently unreachable. Please try again later.',
+            'Network Error'
+          );
+        }
 
         if (error.status === 401 && !this.isRefreshing) {
           this.isRefreshing = true;
