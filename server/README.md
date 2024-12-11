@@ -7,7 +7,7 @@ Welcome to the backend documentation for **Food Squad**. This documentation prov
 
 ## 🌍 Live Deployment
 
-- **Deployment**: [gm-apps](https://foodsquad.gm-apps.dev/swagger)
+- **Deployment**: [gm-apps](https://foodsquad.gm-apps.dev/swagger/index.html)
 
 ---
 
