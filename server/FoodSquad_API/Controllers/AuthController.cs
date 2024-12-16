@@ -98,11 +98,9 @@ namespace FoodSquad_API.Controllers
             Description = "Invalidates the user's access and refresh tokens, logging them out of the application."
         )]
         [SwaggerResponse(200, "User successfully logged out.")]
-        [SwaggerResponse(400, "Access token or refresh token is missing.")]
         [SwaggerResponse(500, "Server error during logout.")]
         public async Task<IActionResult> LogoutUser(
-            [FromHeader(Name = "Authorization")] string authorizationHeader,
-            [FromHeader(Name = "Cookie")] string cookieHeader)
+    [FromHeader(Name = "Authorization")] string authorizationHeader)
         {
             // Extract Access Token from Authorization header
             if (string.IsNullOrEmpty(authorizationHeader) || !authorizationHeader.StartsWith("Bearer "))
@@ -112,14 +110,10 @@ namespace FoodSquad_API.Controllers
 
             var accessToken = authorizationHeader.Substring("Bearer ".Length);
 
-            // Extract Refresh Token from Cookies
-            var refreshToken = Request.Cookies["refreshToken"];
-            if (string.IsNullOrEmpty(refreshToken))
-            {
-                return BadRequest(new { error = "Refresh token cookie is missing." });
-            }
+            // Extract Refresh Token from Cookies (Optional)
+            var refreshToken = Request.Cookies.ContainsKey("refreshToken") ? Request.Cookies["refreshToken"] : null;
 
-            // Invalidate the tokens
+            // Invalidate the tokens even if refreshToken is missing
             await _tokenService.InvalidateTokensAsync(accessToken, refreshToken);
 
             // Clear Refresh Token Cookie
@@ -133,7 +127,6 @@ namespace FoodSquad_API.Controllers
 
             return Ok(new { message = "Successfully logged out." });
         }
-
 
 
 

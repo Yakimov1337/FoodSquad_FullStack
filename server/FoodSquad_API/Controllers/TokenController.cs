@@ -81,7 +81,7 @@ public class TokenController : ControllerBase
             {
                 HttpOnly = true,
                 Secure = true,
-                SameSite = SameSiteMode.Strict,
+                SameSite = SameSiteMode.None,
                 MaxAge = TimeSpan.FromMilliseconds(_jwtUtil.RefreshTokenExpiration)
             });
 
